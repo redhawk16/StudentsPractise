@@ -9,10 +9,10 @@
 
     <!-- Window border customize -->
     <WindowChrome.WindowChrome>
-        <WindowChrome ResizeBorderThickness="5"/>
+        <WindowChrome CornerRadius="0" GlassFrameThickness="1" ResizeBorderThickness="5" UseAeroCaptionButtons="False"/>
     </WindowChrome.WindowChrome>
 
-    <Grid>
+    <Grid Style="{StaticResource WindowMainPanelStyle}">
         <!-- Define Base Grid -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="hamburger_menu" Width="*" MaxWidth="300"/>
@@ -121,17 +121,16 @@
             </DockPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Margin="10">
-            <StackPanel Orientation="Vertical">
+        <Grid Grid.Column="1">
+            <DockPanel>
                 <!-- Top bar -->
-                <Grid VerticalAlignment="Top" Margin="0 0 0 10">
-                    <TextBlock Text="{Binding Title, ElementName=window, FallbackValue='Управление практиками студентов'}" Foreground="#7FFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Grid VerticalAlignment="Top" DockPanel.Dock="Top">
+                    <TextBlock Text="{Binding Title, ElementName=window, FallbackValue='Управление практиками студентов'}" Foreground="#7FFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 4"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
 
                         <!--Restore Button-->
                         <Button x:Name="Restore" Visibility="Collapsed" Style="{StaticResource MyButton}"
-                            Command="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">
+                                WindowChrome.IsHitTestVisibleInChrome="True">
                             <Grid Width="30" Height="25" UseLayoutRounding="True" RenderTransform="1,0,0,1,.5,.5">
                                 <Path Data="M2,0 L8,0 L8,6 M0,3 L6,3 M0,2 L6,2 L6,8 L0,8 Z" Width="8" Height="8" VerticalAlignment="Center" HorizontalAlignment="Center"
                                     Stroke="#7FFFFFFF" StrokeThickness="1"  />
@@ -139,26 +138,29 @@
                         </Button>
 
                         <!--Minimize Button-->
-                        <Button x:Name="Minimize" Style="{StaticResource MyButton}"
-                            Command="{x:Static SystemCommands.MinimizeWindowCommand}">
-                            <Grid Width="30" Height="25">
-                                <Path Data="M 0,0 L 0,0 12,0" Width="12" Height="12" StrokeThickness="1" Stroke="#7FFFFFFF" Stretch="Fill"/>
+                        <Button x:Name="Minimize"
+                                WindowChrome.IsHitTestVisibleInChrome="True"
+                                Style="{StaticResource MyButton}"
+                                Click="ButtonMin_Click">
+                            <Grid Width="30" Height="25" WindowChrome.IsHitTestVisibleInChrome="True">
+                                <Path Data="M 0,0 L 0,0 12,0" Width="12" Height="12" Stretch="Fill" StrokeThickness="1" Stroke="#7FFFFFFF"/>
                             </Grid>
                         </Button>
                         
                         <!--Maximize Button-->
                         <Button x:Name="Maximize" Style="{StaticResource MyButton}"
-                            Command="{x:Static SystemCommands.MaximizeWindowCommand}">
+                                WindowChrome.IsHitTestVisibleInChrome="True"
+                                Click="ButtonMax_Click">
                             <Grid Width="30" Height="25">
-                                <Path Data="M0,0 L12,0 M0,0 L0,12 M12,12 L0,12 M12,12 L12,0" Width="12" Height="12" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                    Stroke="#7FFFFFFF" StrokeThickness="1.5" />
+                                <Path Data="M0,0 L1,0 M0,1 L1,1 M1,0 L1,1 M0,1 L0,0" Width="12" Height="12" Stretch="Fill" 
+                                    Stroke="#7FFFFFFF" StrokeThickness="1" />
                             </Grid>
                         </Button>
                         
                         <!--Close Button-->
                         <Button x:Name="Close" Style="{StaticResource MyButton}"
-                            Command="{x:Static SystemCommands.CloseWindowCommand}"
-                                WindowChrome.IsHitTestVisibleInChrome="True">
+                                WindowChrome.IsHitTestVisibleInChrome="True"
+                                Click="ButtonClose_Click">
                             <Grid Width="30" Height="25">
                                 <Path x:Name="Cross" Data="M0,0 L1,1 M0,1 L1,0" Stretch="Fill" Width="12" Height="12"
                                     Stroke="#7FFFFFFF" StrokeThickness="1" />
@@ -168,9 +170,9 @@
                 </Grid>
 
                 <!-- Content zone -->
-                <Grid x:Name="ContentView"/>
+                <Grid x:Name="ContentView" Margin="10" DockPanel.Dock="Top"/>
 
-            </StackPanel>
+            </DockPanel>
         </Grid>
 
 
