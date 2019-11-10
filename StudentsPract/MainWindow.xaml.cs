@@ -28,9 +28,11 @@ namespace StudentsPract
         {
             InitializeComponent();
 
+            this.MaxHeight = SystemParameters.WorkArea.Height + (SystemParameters.MaximizedPrimaryScreenHeight - SystemParameters.WorkArea.Height); // Setting maximum height of window aplication (Solve: Maximized window was under taskbar)
+            //this.MaxWidth = SystemParameters.WorkArea.Width;
+
             TopMenu.SelectedIndex = 0; // Set home screen page is activated after startup application and initialize components
 
-            Console.WriteLine(Directory.GetCurrentDirectory());
         }
 
         private void hamburger_Click(object sender, RoutedEventArgs e)
@@ -45,55 +47,56 @@ namespace StudentsPract
             hamburger_menu_open = !hamburger_menu_open;
         }
 
-        private void BottomListView_Selected(object sender, RoutedEventArgs e)
-        {
-            //((ListView)sender).Name
-
-            // TopMenu hide selection
-            if (TopMenu.SelectedIndex != -1 || !TopMenu.SelectedIndex.Equals("")) {
-                TopMenu.SelectedIndex = -1;
-            }
-        }
-
         private void TopListView_Selected(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(((ListView)sender).Name);
-            int index = TopMenu.SelectedIndex;
-            //int f = (ListView)this.[Name];
-
-            if ( ((ListView)sender).Name.Equals("BottomMenu") ) { index = 5; }
-
-            if (ContentView.IsInitialized)
+            if (((ListView)sender).SelectedIndex != -1) // Kostil for a listview selected items
             {
-                switch (index)
-                {
-                    case 0: // Главная страница
-                        ContentView.Children.Clear();
-                        ContentView.Children.Add(new Home());
-                        break;
-                    case 1: // Список студентов
-                        ContentView.Children.Clear();
-                        ContentView.Children.Add(new Students());
-                        break;
-                    case 2: // Реестр баз практики
-                        ContentView.Children.Clear();
-                        break;
-                    case 3: // Договора на практику
-                        ContentView.Children.Clear();
-                        break;
-                    case 4: // Уведомления
-                        ContentView.Children.Clear();
-                        break;
-                    case 5: // Параметры
-                        ContentView.Children.Clear();
-                        break;
-                    default: break;
-                }
-            }
+                //int index = -1;
+                string name = ((ListView)sender).Name;
 
-            // BottomMenu hide selection
-            if (BottomMenu.SelectedIndex != -1 || !BottomMenu.SelectedIndex.Equals("")) { 
-                BottomMenu.SelectedIndex = -1;
+                int index = ((ListView)sender).SelectedIndex;
+
+                if (name.Equals("BottomMenu"))
+                {
+                    index = 5;
+                }
+
+                if (ContentView.IsInitialized)
+                {
+                    switch (index)
+                    {
+                        case 0: // Главная страница
+                            ContentView.Children.Clear();
+                            ContentView.Children.Add(new Home());
+                            break;
+                        case 1: // Список студентов
+                            ContentView.Children.Clear();
+                            ContentView.Children.Add(new Students());
+                            break;
+                        case 2: // Реестр баз практики
+                            ContentView.Children.Clear();
+                            break;
+                        case 3: // Договора на практику
+                            ContentView.Children.Clear();
+                            break;
+                        case 4: // Уведомления
+                            ContentView.Children.Clear();
+                            break;
+                        case 5: // Параметры
+                            ContentView.Children.Clear();
+                            break;
+                        default: break;
+                    }
+                }
+
+                if (name.Equals("TopMenu"))
+                {
+                    BottomMenu.SelectedIndex = -1; // Unselect BOTTOM ListViewItem
+                }
+                else if (name.Equals("BottomMenu"))
+                {
+                    TopMenu.SelectedIndex = -1; // Unselect TOP ListViewItem
+                }
             }
         }
 

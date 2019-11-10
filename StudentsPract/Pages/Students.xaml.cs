@@ -22,7 +22,7 @@ namespace StudentsPract.Pages
     /// </summary>
     public partial class Students : UserControl
     {
-        public ObservableCollection<TreeViewItem> Groups { get; set; }
+        public ObservableCollection<TreeView> Groups { get; set; }
 
         public Students()
         {
@@ -30,8 +30,6 @@ namespace StudentsPract.Pages
 
             SQLiteAdapter sqliteAdapter = new SQLiteAdapter(); // create instance for SQLiteAdapter
 
-            treeView.Items.Add("f");
         }
-
     }
 }

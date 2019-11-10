@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsPract"
         mc:Ignorable="d"
-        Title="Управление практиками студентов" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen" SnapsToDevicePixels="True" Background="#FF252526" WindowStyle="None">
+        
+        Title="Управление практиками студентов"
+        Height="600" Width="900"
+        MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        SnapsToDevicePixels="True"
+        Background="#FF252526"
+        WindowStyle="None">
 
     <!-- Window border customize -->
     <WindowChrome.WindowChrome>
-        <WindowChrome CornerRadius="0" GlassFrameThickness="1" ResizeBorderThickness="5" UseAeroCaptionButtons="False"/>
+        <WindowChrome CornerRadius="0" GlassFrameThickness="0" ResizeBorderThickness="5" NonClientFrameEdges="None"/>
     </WindowChrome.WindowChrome>
 
     <Grid Style="{StaticResource WindowMainPanelStyle}">
@@ -106,7 +113,7 @@
                           BorderThickness="0"
                           DockPanel.Dock="Bottom"
                           VerticalAlignment="Bottom"
-                          SelectionChanged="BottomListView_Selected">
+                          SelectionChanged="TopListView_Selected">
 
                     <!-- Hamburger menu item's -->
                     <!-- Preferences page -->
