@@ -11,8 +11,8 @@
         MinHeight="600" MinWidth="900"
         WindowStartupLocation="CenterScreen"
         SnapsToDevicePixels="True"
-        Background="#FF252526"
-        WindowStyle="None">
+        WindowStyle="None"
+        Style="{DynamicResource WindowStyle}">
 
     <!-- Window border customize -->
     <WindowChrome.WindowChrome>
@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Side Menu -->
-        <Grid Grid.Column="0" Background="#1F1F1F">
+        <Grid Grid.Column="0" Background="{DynamicResource SidebarColor}">
 
             <DockPanel>
 
@@ -36,7 +36,6 @@
                         Content="&#xf0c9;"
                         FontFamily="{StaticResource FontAwesome}"
                         Style="{StaticResource MyButton}"
-                        Foreground="White"
                         FontSize="22"
                         Margin="10 10 0 10"
                         Padding="10 5"
@@ -46,8 +45,8 @@
                         DockPanel.Dock="Top"/>
 
                 <ListView x:Name="TopMenu"
-                          Foreground="White"
                           Background="Transparent"
+                          Foreground="{DynamicResource Foreground}"
                           ScrollViewer.VerticalScrollBarVisibility="Disabled"
                           BorderBrush="Transparent"
                           Margin="0 10"
@@ -62,15 +61,23 @@
                     <!-- Main page -->
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf015;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock Text="&#xf015;" Style="{StaticResource LVITextFA}"/>
                             <TextBlock Text="Главная страница" />
                         </StackPanel>
                     </ListViewItem>
 
+                    <!-- Groups page -->
+                    <ListViewItem Style="{StaticResource myListView}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xf500;" Style="{StaticResource LVITextFA}"/>
+                            <TextBlock Text="Список групп" />
+                        </StackPanel>
+                    </ListViewItem>
+                    
                     <!-- Students page -->
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf501;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock Text="&#xf501;" Style="{StaticResource LVITextFA}"/>
                             <TextBlock Text="Список студентов" />
                         </StackPanel>
                     </ListViewItem>
@@ -78,23 +85,23 @@
                     <!-- Practise base page -->
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf0b1;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
-                            <TextBlock Text="Реестр баз практики" />
+                            <TextBlock Text="&#xf0b1;" Style="{StaticResource LVITextFA}"/>
+                            <TextBlock Text="Базы практики" />
                         </StackPanel>
                     </ListViewItem>
 
                     <!-- Contracts page -->
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf07c;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
-                            <TextBlock Text="Договора на практику"/>
+                            <TextBlock Text="&#xf07c;" Style="{StaticResource LVITextFA}"/>
+                            <TextBlock Text="Документы"/>
                         </StackPanel>
                     </ListViewItem>
 
                     <!-- Remind page -->
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf0f3;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock Text="&#xf0f3;" Style="{StaticResource LVITextFA}"/>
                             <TextBlock Text="Уведомления" />
                         </StackPanel>
                     </ListViewItem>
@@ -102,7 +109,7 @@
                 </ListView>
 
                 <ListView x:Name="BottomMenu"
-                          Foreground="White"
+                          Foreground="{DynamicResource Foreground}"
                           Background="Transparent"
                           ScrollViewer.VerticalScrollBarVisibility="Disabled"
                           BorderBrush="Transparent"
@@ -119,7 +126,7 @@
                     <!-- Preferences page -->
                     <ListViewItem Style="{StaticResource myListView}" VerticalAlignment="Bottom">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xf013;" FontFamily="{StaticResource FontAwesome}" MinWidth="19" FontSize="17" Margin="0 0 15 0" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock Text="&#xf013;" Style="{StaticResource LVITextFA}"/>
                             <TextBlock Text="Параметры" />
                         </StackPanel>
                     </ListViewItem>
@@ -132,7 +139,7 @@
             <DockPanel>
                 <!-- Top bar -->
                 <Grid VerticalAlignment="Top" DockPanel.Dock="Top">
-                    <TextBlock Text="{Binding Title, ElementName=window, FallbackValue='Управление практиками студентов'}" Foreground="#7FFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 4"/>
+                    <TextBlock Text="{Binding Title, ElementName=window, FallbackValue='Управление практиками студентов'}" Foreground="{DynamicResource TitleColor}" FontSize="13" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 4"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
 
                         <!--Restore Button-->
@@ -165,7 +172,7 @@
                         </Button>
                         
                         <!--Close Button-->
-                        <Button x:Name="Close" Style="{StaticResource MyButton}"
+                        <Button Name="Close" Style="{StaticResource MyButton}"
                                 WindowChrome.IsHitTestVisibleInChrome="True"
                                 Click="ButtonClose_Click">
                             <Grid Width="30" Height="25">

@@ -58,7 +58,7 @@ namespace StudentsPract
 
                 if (name.Equals("BottomMenu"))
                 {
-                    index = 5;
+                    index = 6;
                 }
 
                 if (ContentView.IsInitialized)
@@ -69,21 +69,29 @@ namespace StudentsPract
                             ContentView.Children.Clear();
                             ContentView.Children.Add(new Home());
                             break;
-                        case 1: // Список студентов
+                        case 1: // Список групп
+                            ContentView.Children.Clear();
+                            ContentView.Children.Add(new Groups());
+                            break;                        
+                        case 2: // Список студентов
                             ContentView.Children.Clear();
                             ContentView.Children.Add(new Students());
                             break;
-                        case 2: // Реестр баз практики
+                        case 3: // Реестр баз практики
                             ContentView.Children.Clear();
+                            //ContentView.Children.Add(new Practises());
                             break;
-                        case 3: // Договора на практику
+                        case 4: // Документы
                             ContentView.Children.Clear();
+                            //ContentView.Children.Add(new Documents());
                             break;
-                        case 4: // Уведомления
+                        case 5: // Уведомления
                             ContentView.Children.Clear();
+                            //ContentView.Children.Add(new Reminders());
                             break;
-                        case 5: // Параметры
+                        case 6: // Параметры
                             ContentView.Children.Clear();
+                            ContentView.Children.Add(new Preferences());
                             break;
                         default: break;
                     }
