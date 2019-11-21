@@ -8,8 +8,51 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="Основная информация" FontSize="28" Foreground="White" Margin="0 0 0 10"/>
-            <TextBlock x:Name="TextBlock_Username" Text="Вы вошли под именем: " FontSize="18" Foreground="#E9E9E9"/>
+            <TextBlock Text="Основная информация" FontSize="24" Margin="0 0 0 10"/>
+            <TextBlock x:Name="TextBlock_Username" Text="Вы вошли под именем: " FontSize="16" Foreground="{DynamicResource GrayColor}"/>
+            <TextBlock Text="Руководство пользователя" FontSize="16" Foreground="{DynamicResource GrayColor}" TextDecorations="Underline"/>
+            <Grid Margin="0 15 0 0">
+                <WrapPanel>
+                    <!-- Items -->
+                    <!-- Add student -->
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="&#xf234;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource BorderBrushHover}"/>
+                            <TextBlock Text="Добавление студента" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
+                            <TextBlock Text="Описание Lorem ipsum dolor sit amet consectetur adipiscing elit" Style="{StaticResource ItemsCardText}" FontSize="12" Foreground="{DynamicResource TitleColor}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Add Group -->
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="&#xf5fd;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource BorderBrushHover}"/>
+                            <TextBlock Text="Добавление группы" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
+                            <TextBlock Text="Описание Lorem ipsum dolor sit amet consectetur adipiscing elit" Style="{StaticResource ItemsCardText}" FontSize="12" Foreground="{DynamicResource TitleColor}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Create Order -->
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="&#xf477;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource BorderBrushHover}"/>
+                            <TextBlock Text="Создать приказ" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
+                            <TextBlock Text="Описание Lorem ipsum dolor sit amet consectetur adipiscing elit" Style="{StaticResource ItemsCardText}" FontSize="12" Foreground="{DynamicResource TitleColor}"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <!-- Create offer -->
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="&#xf65e;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource BorderBrushHover}"/>
+                            <TextBlock Text="Формирование договора" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
+                            <TextBlock Text="Описание Lorem ipsum dolor sit amet consectetur adipiscing elit" Style="{StaticResource ItemsCardText}" FontSize="12" Foreground="{DynamicResource TitleColor}"/>
+                        </StackPanel>
+                    </Button>
+
+                </WrapPanel>
+                
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

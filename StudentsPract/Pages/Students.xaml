@@ -6,22 +6,114 @@
              xmlns:local="clr-namespace:StudentsPract.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
+        <!--
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
+        -->
         
-        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Column="1"/>
-        <Grid Grid.Column="0">
+        <Grid>
             <DockPanel>
                 <TextBlock Text="Список студентов" DockPanel.Dock="Top" Foreground="White" FontSize="28" Margin="0 0 0 20" VerticalAlignment="Center"/>
-                <TreeView x:Name="treeView" DockPanel.Dock="Left" MinWidth="250">
+
+                <!--
+                <TreeView x:Name="treeView" DockPanel.Dock="Left" MinWidth="200">
                     <HierarchicalDataTemplate ItemsSource="{Binding Path=Groups}">
                         <TextBlock Text="{Binding Group_Name}"/>
                     </HierarchicalDataTemplate>
-                </TreeView>
-                <DataGrid x:Name="dataGrid" DockPanel.Dock="Left"/>
+                </TreeView> 
+                -->
+
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="0 0 0 10">
+                    <Button x:Name="Student_add" Content="Добавить" Style="{StaticResource MyButton}" Click="Student_Hotkey"/>
+                    <Button x:Name="Student_edit" Content="Редактировать" Style="{StaticResource MyButton}" Click="Student_Hotkey"/>
+                    <Button x:Name="Student_del" Content="Удалить" Style="{StaticResource MyButton}" Click="Student_Hotkey"/>
+                </StackPanel>
+
+                <DataGrid x:Name="dataGrid" DockPanel.Dock="Left"
+                          PreviewKeyDown="dataGrid_PreviewKeyDown"
+                          CellEditEnding="dataGrid_CellEditEnding"
+                          Style="{DynamicResource MyDataGrid}">
+
+                    <DataGrid.Columns>
+                        <!--
+                        <DataGridTextColumn Binding="{Binding id}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="ID" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="id" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        -->
+
+                        <DataGridTextColumn Binding="{Binding surname}" IsReadOnly="True">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Фамилия" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="surname" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding name}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Имя" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="name" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding patronymic}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Отчество" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="patronymic" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding group}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Группа" HorizontalAlignment="Center"/>
+                                    <ComboBox x:Name="group" TextBoxBase.TextChanged="FilterValue" IsEditable="True" FontSize="13"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding free_study}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Форма обучения" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="free_study" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding email}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Email" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="email" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Binding="{Binding phone}">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" Margin="-5 0 -5 0">
+                                    <TextBlock Text="Телефон" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="phone" Style="{StaticResource placeHolder}" TextChanged="FilterValue" Tag="Фильтр"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </DockPanel>
         </Grid>
     </Grid>

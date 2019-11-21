@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 A:\Projects\CSharp\StudentsPractise\StudentsPract\App.xaml
-7-1838531566
+12-1492494992
 
-12-50407406
+12-1358492617
 182067233592
-MainWindow.xaml;Pages\Home.xaml;Pages\Students.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;
+MainWindow.xaml;Pages\Groups.xaml;Pages\Home.xaml;Pages\Preferences.xaml;Pages\Students.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;Themes\Dark.xaml;Themes\Light.xaml;Windows\Student_add.xaml;
 
-True
+False
 
