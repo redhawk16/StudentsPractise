@@ -17,7 +17,7 @@
         
         <Grid>
             <DockPanel>
-                <TextBlock Text="Список студентов" DockPanel.Dock="Top" Foreground="White" FontSize="28" Margin="0 0 0 20" VerticalAlignment="Center"/>
+                <TextBlock Text="Список студентов" DockPanel.Dock="Top" FontSize="28" Margin="0 0 0 20" VerticalAlignment="Center"/>
 
                 <!--
                 <TreeView x:Name="treeView" DockPanel.Dock="Left" MinWidth="200">

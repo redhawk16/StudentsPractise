@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-A:\Projects\CSharp\StudentsPractise\StudentsPract\obj\Debug\
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\
 StudentsPract
 none
 false
 DEBUG;TRACE
-A:\Projects\CSharp\StudentsPractise\StudentsPract\App.xaml
-12-1492494992
+D:\Projects\CSharp\StudentsPract\StudentsPract\App.xaml
+141480409908
 
-12-1358492617
-182067233592
-MainWindow.xaml;Pages\Groups.xaml;Pages\Home.xaml;Pages\Preferences.xaml;Pages\Students.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;Themes\Dark.xaml;Themes\Light.xaml;Windows\Student_add.xaml;
+15-1375463923
+192103358507
+MainWindow.xaml;Pages\Documents.xaml;Pages\Groups.xaml;Pages\Home.xaml;Pages\Preferences.xaml;Pages\Students.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;Themes\Dark.xaml;Themes\Light.xaml;Windows\Contracts_add.xaml;Windows\Student_add.xaml;
 
 False
 

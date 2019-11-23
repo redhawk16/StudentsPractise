@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentsPract.Windows"
         mc:Ignorable="d"
-        Title="Добавление студента" Height="450" Width="800"
+        Title="Добавление студента"
         
-        Style="{DynamicResource WindowStyle}" 
+        Style="{DynamicResource WindowStyle}"
+        Background="Transparent"
         WindowStyle="None" 
         ResizeMode="NoResize"
         ShowInTaskbar="False" 
@@ -16,25 +17,41 @@
         AllowsTransparency="True">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome CornerRadius="5" GlassFrameThickness="0" ResizeBorderThickness="3" NonClientFrameEdges="None"/>
+        <WindowChrome CornerRadius="0" GlassFrameThickness="0" ResizeBorderThickness="3" NonClientFrameEdges="None"/>
     </WindowChrome.WindowChrome>
 
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
+    <Grid Margin="5" Background="{DynamicResource PrimaryColor}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0">
-            <Label Content="Фамилия" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120"/>
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <UniformGrid Columns="2" Width="auto" HorizontalAlignment="Left">
+                
+                    <!-- Inputs -->
+                    <Label Content="Фамилия" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
 
-        </StackPanel>
+                    <Label Content="Имя" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10 20 10 0">
-            <Button x:Name="AddStudent" Content="Добавить" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
-            <Button x:Name="FormClose" Content="Отмена" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
-        </StackPanel>
+                    <Label Content="Отчество" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
+                </UniformGrid>
+            </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10 20 10 0">
+                <Button x:Name="AddStudent" Content="Добавить" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
+                <Button x:Name="FormClose" Content="Отмена" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
+            </StackPanel>
+        </Grid>
+
+        <Border BorderThickness="0.7" BorderBrush="{DynamicResource AccentColor}" Background="{DynamicResource PrimaryColor}" Panel.ZIndex="-1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="{Binding Path=Color, Source={StaticResource AccentColor}}" RenderingBias="Quality"/>
+            </Border.Effect>
+        </Border>
     </Grid>
 </Window>

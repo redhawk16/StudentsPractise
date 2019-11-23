@@ -3,22 +3,34 @@
     <!-- xmlns:local="clr-namespace:StudentsPract.Themes"> -->
 
     <!-- Colors -->
-    <SolidColorBrush x:Key="Foreground" Color="White"/>
-    <SolidColorBrush x:Key="GrayColor" Color="#E9E9E9"/>
-    <SolidColorBrush x:Key="TitleColor" Color="#7FFFFFFF"/>
     <SolidColorBrush x:Key="BorderBrush" Color="#33E9E9E9"/>
-    <SolidColorBrush x:Key="BorderBrushHover" Color="#FF0078D7"/>
-    <SolidColorBrush x:Key="SidebarColor" Color="#1F1F1F"/>
     <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#2B2B2B"/>
     <SolidColorBrush x:Key="Item.MouseOver.BackgroundLight" Color="#383838"/>
 
+    <SolidColorBrush x:Key="PrimaryColor" Color="#FF252526"/> <!-- Dark Gray (Background)-->
+    <SolidColorBrush x:Key="SecondaryColor" Color="#1F1F1F"/> <!-- Darken Dark Gray (SideBar)-->
+    <SolidColorBrush x:Key="AccentColor" Color="#FF0078D7"/>  <!-- Dark Blue -->
+
+    <SolidColorBrush x:Key="TextPrimaryColor" Color="WhiteSmoke"/>
+    <SolidColorBrush x:Key="TextSecondaryColor" Color="#7FFFFFFF"/> <!-- Gray -->
+
+
+
     <!-- Default color for Text -->
-    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="White"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="{Binding Path=Color, Source={StaticResource TextPrimaryColor}}"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{Binding Path=Color, Source={StaticResource Item.MouseOver.Background}}"/>
+
+    <!--
+    <Style TargetType="Control">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="Blue"/>
+    </Style>
+    -->
 
 
     <!-- Styles -->
     <Style x:Key="WindowStyle" TargetType="Window">
-        <Setter Property="Background" Value="#FF252526" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="FontSize" Value="16"/>
     </Style>
 

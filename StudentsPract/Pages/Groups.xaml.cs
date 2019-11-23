@@ -26,6 +26,7 @@ namespace StudentsPract.Pages
     {
         SQLiteAdapter sqliteAdapter = new SQLiteAdapter(); // create instance for SQLiteAdapter
         DataGridHelper dataGridHelper = new DataGridHelper(); // create instance for DataGridHelper
+        DBTableHelper DBTableHelper = new DBTableHelper();
 
         string table_name = "groups";
 
@@ -64,21 +65,7 @@ namespace StudentsPract.Pages
 
         private void load_data_grid()
         {
-            List<Group> values = new List<Group>();
-            List<List<string>> tmp = sqliteAdapter.GetValue(table_name);
-
-            foreach (List<string> column in tmp)
-            {
-                values.Add(new Group
-                {
-                    id = column[0],
-                    group = column[1],
-                    direction = column[2],
-                    form_study = column[3],
-                    enroll_year = column[4],
-                    end_year = column[5]
-                });
-            }
+            List<Group> values = DBTableHelper.GetGroupsTable();
 
             for (int i = 0; i < values.Count; i++) if (!group.Items.Contains(values[i].group)) group.Items.Add(values[i].group); // ComboBox repeat values check
 
@@ -86,13 +73,4 @@ namespace StudentsPract.Pages
         }
     }
 
-    class Group
-    {
-        public string id { get; set; }
-        public string group { get; set; }
-        public string direction { get; set; }
-        public string form_study { get; set; }
-        public string enroll_year { get; set; }
-        public string end_year { get; set; }
-    }
 }

@@ -83,7 +83,7 @@ namespace StudentsPract
                             break;
                         case 4: // Документы
                             ContentView.Children.Clear();
-                            //ContentView.Children.Add(new Documents());
+                            ContentView.Children.Add(new Documents());
                             break;
                         case 5: // Уведомления
                             ContentView.Children.Clear();

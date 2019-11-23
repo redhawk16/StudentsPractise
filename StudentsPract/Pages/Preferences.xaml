@@ -8,9 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="Параметры" Foreground="White" FontSize="24"/>
+            <TextBlock Text="Параметры" FontSize="24"/>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Цветовая тема" Foreground="White" FontSize="16" Margin="0 0 10 0"/>
+                <TextBlock Text="Цветовая тема" FontSize="16" Margin="0 0 10 0"/>
                 <ComboBox x:Name="themeSwitcher" SelectionChanged="ThemeChange"/>
             </StackPanel>
         </StackPanel>

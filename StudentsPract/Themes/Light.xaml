@@ -1,22 +1,29 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- xmlns:local="clr-namespace:StudentsPract.Themes"> -->
+    
+    <!-- Colors -->
+    <SolidColorBrush x:Key="BorderBrush" Color="LightGray"/>
+    <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#c7c7c7"/>
+    <SolidColorBrush x:Key="Item.MouseOver.BackgroundLight" Color="#d9d9d9"/>
 
-    <SolidColorBrush x:Key="Foreground" Color="Black"/>
-    <SolidColorBrush x:Key="GrayColor" Color="Black"/>
-    <SolidColorBrush x:Key="TitleColor" Color="#4d4d4d"/>
-    <SolidColorBrush x:Key="BorderBrush" Color="#9e9e9e"/>
-    <SolidColorBrush x:Key="BorderBrushHover" Color="#FF0078D7"/>
-    <SolidColorBrush x:Key="SidebarColor" Color="#FFECECEC"/>
-    <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#dedede"/>
-    <SolidColorBrush x:Key="Item.MouseOver.BackgroundLight" Color="#ededed"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#f5f5f6" />    <!-- Dark Gray (Background)-->
+    <SolidColorBrush x:Key="SecondaryColor" Color="#e6e6e6"/>    <!-- Darken Dark Gray (SideBar)-->
+    <SolidColorBrush x:Key="AccentColor" Color="#02a345"/>    <!-- Dark Blue -->
+
+    <SolidColorBrush x:Key="TextPrimaryColor" Color="Black"/>
+    <SolidColorBrush x:Key="TextSecondaryColor" Color="#3d3d3d"/>    <!-- Gray -->
+
+
 
     <!-- Default color for Text -->
-    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="Black"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="{Binding Path=Color, Source={StaticResource TextPrimaryColor}}"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="White"/>
 
 
+    <!-- Styles -->
     <Style x:Key="WindowStyle" TargetType="Window">
-        <Setter Property="Background" Value="#ffffff" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="FontSize" Value="16"/>
     </Style>
 </ResourceDictionary>

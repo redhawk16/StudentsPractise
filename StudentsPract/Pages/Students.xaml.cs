@@ -28,6 +28,7 @@ namespace StudentsPract.Pages
     {
         SQLiteAdapter sqliteAdapter = new SQLiteAdapter(); // create instance for SQLiteAdapter
         DataGridHelper dataGridHelper = new DataGridHelper(); // create instance for DataGridHelper
+        DBTableHelper DBTableHelper = new DBTableHelper();
 
         string table_name = "students";
 
@@ -152,38 +153,11 @@ namespace StudentsPract.Pages
 
         private void load_data_grid()
         {
-            List<Student> values = new List<Student>();
-            List<List<string>> tmp = sqliteAdapter.GetValue(table_name);
-
-            foreach (List<string> column in tmp)
-            {
-                values.Add(new Student { 
-                    id          = column[0], 
-                    surname     = column[1],
-                    name        = column[2], 
-                    patronymic  = column[3], 
-                    group       = column[4], 
-                    free_study  = column[5], 
-                    email       = column[6], 
-                    phone       = column[7] 
-                });
-            }
+            List<Student> values = DBTableHelper.GetStudentsTable();
 
             for (int i = 0; i < values.Count; i++) if (!group.Items.Contains(values[i].group)) group.Items.Add(values[i].group); // ComboBox repeat values check
 
             dataGrid.ItemsSource = values; // Binding items in DataGrid
         }
-    }
-
-    class Student
-    {
-        public string id { get; set; }
-        public string surname { get; set; }
-        public string name { get; set; }
-        public string patronymic { get; set; }
-        public string group { get; set; }
-        public string free_study { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
     }
 }

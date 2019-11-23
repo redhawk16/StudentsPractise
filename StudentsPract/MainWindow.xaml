@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Side Menu -->
-        <Grid Grid.Column="0" Background="{DynamicResource SidebarColor}">
+        <Grid Grid.Column="0" Background="{DynamicResource SecondaryColor}">
 
             <DockPanel>
 
@@ -61,7 +61,7 @@
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="&#xf015;" Style="{StaticResource LVITextFA}"/>
-                            <TextBlock Text="Главная страница" />
+                            <TextBlock Text="Главная страница"/>
                         </StackPanel>
                     </ListViewItem>
 
@@ -98,13 +98,14 @@
                     </ListViewItem>
 
                     <!-- Remind page -->
+                    <!--
                     <ListViewItem Style="{StaticResource myListView}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="&#xf0f3;" Style="{StaticResource LVITextFA}"/>
                             <TextBlock Text="Уведомления" />
                         </StackPanel>
                     </ListViewItem>
-
+                    -->
                 </ListView>
 
                 <ListView x:Name="BottomMenu"
@@ -138,7 +139,7 @@
                 <!-- Top bar -->
                 <Grid VerticalAlignment="Top" DockPanel.Dock="Top">
                     <TextBlock Text="{Binding Title, ElementName=window, FallbackValue='Управление практиками студентов'}" 
-                               Foreground="{DynamicResource TitleColor}" 
+                               Foreground="{DynamicResource TextSecondaryColor}" 
                                FontSize="13" 
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Center" 
@@ -150,7 +151,7 @@
                                 WindowChrome.IsHitTestVisibleInChrome="True">
                             <Grid Width="30" Height="25" UseLayoutRounding="True" RenderTransform="1,0,0,1,.5,.5">
                                 <Path Data="M2,0 L8,0 L8,6 M0,3 L6,3 M0,2 L6,2 L6,8 L0,8 Z" Width="8" Height="8" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                    Stroke="#7FFFFFFF" StrokeThickness="1"  />
+                                    Stroke="{DynamicResource TextSecondaryColor}" StrokeThickness="1"  />
                             </Grid>
                         </Button>
 
@@ -159,7 +160,7 @@
                                 WindowChrome.IsHitTestVisibleInChrome="True"
                                 Click="ButtonMin_Click">
                             <Grid Width="30" Height="25" WindowChrome.IsHitTestVisibleInChrome="True">
-                                <Path Data="M 0,0 L 0,0 12,0" Width="12" Height="12" Stretch="Fill" StrokeThickness="1" Stroke="#7FFFFFFF"/>
+                                <Path Data="M 0,0 L 0,0 12,0" Width="12" Height="12" Stretch="Fill" StrokeThickness="1" Stroke="{DynamicResource TextSecondaryColor}"/>
                             </Grid>
                         </Button>
                         
@@ -169,7 +170,7 @@
                                 Click="ButtonMax_Click">
                             <Grid Width="30" Height="25">
                                 <Path Data="M0,0 L1,0 M0,1 L1,1 M1,0 L1,1 M0,1 L0,0" Width="12" Height="12" Stretch="Fill" 
-                                    Stroke="#7FFFFFFF" StrokeThickness="1" />
+                                    Stroke="{DynamicResource TextSecondaryColor}" StrokeThickness="1" />
                             </Grid>
                         </Button>
                         
@@ -179,7 +180,7 @@
                                 Click="ButtonClose_Click">
                             <Grid Width="30" Height="25">
                                 <Path x:Name="Cross" Data="M0,0 L1,1 M0,1 L1,0" Stretch="Fill" Width="12" Height="12"
-                                    Stroke="#7FFFFFFF" StrokeThickness="1" />
+                                    Stroke="{DynamicResource TextSecondaryColor}" StrokeThickness="1" />
                             </Grid>
                         </Button>
                     </StackPanel>
