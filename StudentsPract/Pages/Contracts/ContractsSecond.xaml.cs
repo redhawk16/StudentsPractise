@@ -1,5 +1,4 @@
-﻿using StudentsPract.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsPract.Pages
+namespace StudentsPract.Pages.Contracts
 {
     /// <summary>
-    /// Логика взаимодействия для Documents.xaml
+    /// Логика взаимодействия для ContractsSecond.xaml
     /// </summary>
-    public partial class Documents : UserControl
+    public partial class ContractsSecond : Page
     {
-        public Documents()
+        public ContractsSecond()
         {
             InitializeComponent();
-        }
-
-        private void ContractsAdd_Click(object sender, RoutedEventArgs e)
-        {
-            //(new Contracts_add()).ShowDialog();
-            new Windows.Contracts().ShowDialog();
         }
     }
 }

@@ -77,8 +77,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\DBTableHelper.cs" />
+    <Compile Include="Pages\Contracts\ContractsFirst.xaml.cs">
+      <DependentUpon>ContractsFirst.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contracts\ContractsSecond.xaml.cs">
+      <DependentUpon>ContractsSecond.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Documents.xaml.cs">
       <DependentUpon>Documents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Contracts.xaml.cs">
+      <DependentUpon>Contracts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Contracts_add.xaml.cs">
       <DependentUpon>Contracts_add.xaml</DependentUpon>
@@ -100,6 +109,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Contracts\ContractsFirst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Contracts\ContractsSecond.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Documents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Contracts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

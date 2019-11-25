@@ -1,0 +1,15 @@
+﻿<Window x:Class="StudentsPract.Windows.Contracts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentsPract.Windows"
+        mc:Ignorable="d"
+        Title="Contracts" Height="450" Width="800"
+        
+        Style="{StaticResource WindowStyle}">
+
+    <Grid>
+        <Frame x:Name="Pages" Margin="5" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -85,4 +85,10 @@ D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Documents.g.cs
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Documents.baml
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Windows\Contracts_add.g.cs
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Windows\Contracts_add.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\ContractsFirst.g.cs
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\ContractsSecond.g.cs
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Windows\Contracts.g.cs
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\ContractsFirst.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\ContractsSecond.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Windows\Contracts.baml
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.csprojAssemblyReference.cache

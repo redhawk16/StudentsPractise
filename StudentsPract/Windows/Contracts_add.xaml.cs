@@ -27,6 +27,20 @@ namespace StudentsPract.Windows
         {
             InitializeComponent();
 
+            /*
+             * SELECT groups.enroll_year 
+                FROM groups
+                INNER JOIN directions ON directions.name=groups.direction
+                WHERE code='09.03.03'
+            */
+
+            /* Insert data to comboboxes */
+            List<string> formPract_array = new List<string> { "Учебная", "Производственная" }; // Вид практики
+            List<string> typePract_array = new List<string> { "Практика по профилю подготовки", "Научно-исследовательская практика", "Преддипломная практика" }; // Тип практики
+
+            formPract.ItemsSource = formPract_array;
+            typePract.ItemsSource = typePract_array;
+
             load_data_grid();
         }
 

@@ -1,6 +1,6 @@
-﻿using StudentsPract.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +14,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsPract.Pages
+namespace StudentsPract.Pages.Contracts
 {
     /// <summary>
-    /// Логика взаимодействия для Documents.xaml
+    /// Логика взаимодействия для ContractsFirst.xaml
     /// </summary>
-    public partial class Documents : UserControl
+    public partial class ContractsFirst : Page
     {
-        public Documents()
+        public ContractsFirst()
         {
             InitializeComponent();
         }
 
-        private void ContractsAdd_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //(new Contracts_add()).ShowDialog();
-            new Windows.Contracts().ShowDialog();
+            Trace.WriteLine("Page 1 navigating to page 2");
+            this.NavigationService.Navigate(new ContractsSecond());
         }
     }
 }

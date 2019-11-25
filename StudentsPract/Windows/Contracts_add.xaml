@@ -14,13 +14,33 @@
         
             <DockPanel>
 
-                <UniformGrid Columns="2" HorizontalAlignment="Left" DockPanel.Dock="Top" Margin="0 5 0 0">
-                    <Label Content="Номер договора"/>
-                    <TextBox Width="auto"></TextBox>
+                <Grid DockPanel.Dock="Top" Margin="0 5 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Texts -->
+                    <UniformGrid Columns="0" Rows="3" Grid.Column="0">
+                        <Label Content="Номер договора"/>
+                        <Label Content="Вид практики"/>
+                        <Label Content="Тип практики"/>
+                    </UniformGrid>
+                    
+                    <!-- Inputs -->
+                    <UniformGrid Columns="0" Rows="3" Grid.Column="1">
+                        <!-- Номер договора -->
+                        <TextBox x:Name="ContractsNum" HorizontalAlignment="Left"  Width="300"></TextBox>
+                        
+                        <!-- Вид практики -->
+                        <ComboBox x:Name="formPract" HorizontalAlignment="Left" Width="300"></ComboBox>
+                        
+                        <!-- Тип практики -->
+                        <ComboBox x:Name="typePract" HorizontalAlignment="Left" Width="300"></ComboBox>
+                    </UniformGrid>
+                </Grid>
+                
 
-                    <Label Content="Тип практики"/>
-                    <ComboBox></ComboBox>
-                </UniformGrid>
 
                 <Grid DockPanel.Dock="Top" Margin="0 10">
                     <Border Height="1">
@@ -122,4 +142,5 @@
 
         </ScrollViewer>
     </Grid>
+
 </Window>

@@ -12,6 +12,11 @@
         </Style.Triggers>
     </Style>
 
+
+    
+    
+    
+    
     <ControlTemplate x:Key="ComboBoxControlTemplate1" TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
             <Grid.ColumnDefinitions>

@@ -1,4 +1,4 @@
-﻿using StudentsPract.Windows;
+﻿using StudentsPract.Pages.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,25 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsPract.Pages
+namespace StudentsPract.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для Documents.xaml
+    /// Логика взаимодействия для Contracts.xaml
     /// </summary>
-    public partial class Documents : UserControl
+    public partial class Contracts : Window
     {
-        public Documents()
+        public Contracts()
         {
             InitializeComponent();
-        }
 
-        private void ContractsAdd_Click(object sender, RoutedEventArgs e)
-        {
-            //(new Contracts_add()).ShowDialog();
-            new Windows.Contracts().ShowDialog();
+            Pages.Content = new ContractsFirst();
         }
     }
 }
