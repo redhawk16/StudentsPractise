@@ -23,6 +23,26 @@ namespace StudentsPract.Pages.Contracts
         public ContractsSecond()
         {
             InitializeComponent();
+            
+            formPract.ItemsSource = new List<string> { "Учебная", "Производственная" }; // Вид практики
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+
+            switch (button.Name)
+            {
+                case "btnClose":
+                    Window parentWindow = Window.GetWindow(this);
+                    parentWindow.Close();
+                    break;
+                case "btnCreate":
+                    MessageBox.Show("Договор сформирован", "Формирование договора", MessageBoxButton.OK);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

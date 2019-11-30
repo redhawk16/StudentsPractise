@@ -28,22 +28,67 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Vertical" Grid.Row="0">
-                <UniformGrid Columns="2" Width="auto" HorizontalAlignment="Left">
-                
-                    <!-- Inputs -->
-                    <Label Content="Фамилия" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
+                <Grid Width="auto" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto" MinWidth="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <Label Content="Имя" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
+                    <Label Content="Фамилия" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10"/>
+                    <TextBox x:Name="surname" Grid.Column="1" Grid.Row="0" Margin="10 0 0 10"/>
 
-                    <Label Content="Отчество" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Column="0"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" Width="120" Grid.Column="1"/>
-                </UniformGrid>
+                    <Label Content="Имя" Grid.Column="0" Grid.Row="1" Margin="0 0 0 10"/>
+                    <TextBox x:Name="name" Grid.Column="1" Grid.Row="1" Margin="10 0 0 10"/>
+
+                    <Label Content="Отчество" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10"/>
+                    <TextBox x:Name="patronymic" Grid.Column="1" Grid.Row="2" Margin="10 0 0 10"/>
+
+                    <Label Content="Группа" Grid.Column="0" Grid.Row="3" Margin="0 0 0 10"/>
+                    <ComboBox x:Name="group" Grid.Column="1" Grid.Row="3" Margin="10 0 0 10"/>
+
+                    <Label Content="Форма обучения" Grid.Column="0" Grid.Row="4" Margin="0 0 0 10"/>
+                    <ComboBox x:Name="formStudy" Grid.Column="1" Grid.Row="4" Margin="10 0 0 10"/>
+
+                    <Label Content="Электронная почта" Grid.Column="0" Grid.Row="5" Margin="0 0 0 10"/>
+                    <TextBox x:Name="email" Grid.Column="1" Grid.Row="5" Margin="10 0 0 10"/>
+
+                    <Label Content="Номер телефона" Grid.Column="0" Grid.Row="6" Margin="0 0 0 10"/>
+                    <TextBox x:Name="phone" Grid.Column="1" Grid.Row="6" Margin="10 0 0 10"/>
+                </Grid>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="10 20 10 0">
-                <Button x:Name="AddStudent" Content="Добавить" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
+                <Button x:Name="AddStudent" Content="Добавить" Click="Button_Listener">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=surname, Path=Text.Length, Mode=OneWay}" Value="{x:Null}"/>
+                                        <Condition Binding="{Binding ElementName=name, Path=Text.Length, Mode=OneWay}" Value="{x:Null}"/>
+                                        <Condition Binding="{Binding ElementName=patronymic, Path=Text.Length, Mode=OneWay}" Value="{x:Null}"/>
+                                        <Condition Binding="{Binding ElementName=email, Path=Text.Length, Mode=OneWay}" Value="{x:Null}"/>
+                                        <Condition Binding="{Binding ElementName=phone, Path=Text.Length, Mode=OneWay}" Value="{x:Null}"/>
+                                        <Condition Binding="{Binding ElementName=formStudy, Path=SelectedItem.Length}" Value="{x:Null}"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
                 <Button x:Name="FormClose" Content="Отмена" Style="{DynamicResource MyButton}" Click="Button_Listener"/>
             </StackPanel>
         </Grid>

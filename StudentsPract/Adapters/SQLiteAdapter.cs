@@ -52,18 +52,18 @@ namespace StudentsPract.Adapters
                     "[surname] TEXT NOT NULL," +
                     "[name] TEXT NOT NULL," +
                     "[patronymic] TEXT NOT NULL," +
-                    "[group] TEXT NOT NULL," +
+                    "[groupe] TEXT NOT NULL," +
                     "[free_study] TEXT NOT NULL," +
                     "[email] TEXT," +
                     "[phone] TEXT," +
-                    "FOREIGN KEY([group]) REFERENCES [groups]([group])" +
+                    "FOREIGN KEY([groupe]) REFERENCES [groups]([groupe])" +
             ")" });
             #endregion
 
             #region Table: groups
             queries.Add(new string[] { "groups", "CREATE TABLE IF NOT EXISTS [groups] (" +
                     "[id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    "[group] TEXT NOT NULL UNIQUE," +
+                    "[groupe] TEXT NOT NULL UNIQUE," +
                     "[direction] TEXT NOT NULL," +
                     "[form_study] TEXT NOT NULL," +
                     "[enroll_year] TEXT NOT NULL," +

@@ -32,5 +32,30 @@ namespace StudentsPract.Pages
 
             TextBlock_Username.Text = "Вы вошли под именем: " + Environment.UserName;
         }
+
+        private void ItemCard_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+
+            switch (button.Name)
+            {
+                case "AddStudent":
+                    mainWindow.TopMenu.SelectedIndex = 2;
+                    new Windows.Student_add().ShowDialog();
+                    break;
+                case "AddGroup":
+                    mainWindow.TopMenu.SelectedIndex = 1;
+                    break;
+                case "AddOrder":
+                    break;
+                case "AddContract":
+                    mainWindow.TopMenu.SelectedIndex = 4;
+                    new Windows.Contracts().ShowDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

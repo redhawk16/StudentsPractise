@@ -15,7 +15,7 @@
                 <WrapPanel>
                     <!-- Items -->
                     <!-- Add student -->
-                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}" Click="ItemCard_Click" x:Name="AddStudent">
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="&#xf234;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource AccentColor}"/>
                             <TextBlock Text="Добавление студента" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
@@ -24,7 +24,7 @@
                     </Button>
 
                     <!-- Add Group -->
-                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}" Click="ItemCard_Click" x:Name="AddGroup">
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="&#xf5fd;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource AccentColor}"/>
                             <TextBlock Text="Добавление группы" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
@@ -33,7 +33,7 @@
                     </Button>
 
                     <!-- Create Order -->
-                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}" Click="ItemCard_Click" x:Name="AddOrder">
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="&#xf477;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource AccentColor}"/>
                             <TextBlock Text="Создание приказа" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>
@@ -42,7 +42,7 @@
                     </Button>
                     
                     <!-- Create offer -->
-                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}">
+                    <Button MaxWidth="170" Style="{StaticResource ItemsCard}" Click="ItemCard_Click" x:Name="AddContract">
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="&#xf65e;" FontFamily="{StaticResource FontAwesome}" FontSize="28" VerticalAlignment="Center" TextAlignment="Left" Foreground="{DynamicResource AccentColor}"/>
                             <TextBlock Text="Формирование договора" Style="{StaticResource ItemsCardText}" Padding="0 0 0 5"/>

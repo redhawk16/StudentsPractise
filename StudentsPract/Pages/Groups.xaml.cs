@@ -2,6 +2,7 @@
 using StudentsPract.Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -34,17 +35,23 @@ namespace StudentsPract.Pages
         {
             InitializeComponent();
 
-            load_data_grid(); // DataGrid Binding
+            /*List<Group> groups = DBTableHelper.GetGroupsTable();
+            foreach (Group group in groups) {
+                dataGrid.Items.Add(group);
+            }*/
+            dataGrid.ItemsSource = DBTableHelper.GetGroupsTable();
+
+            //load_data_grid(); // DataGrid Binding
         }
 
         #region DataGrid Methods
 
         #region DataGrid: Editing
-        private void dataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e) // Editing DataGrid Row
+        /*private void dataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e) // Editing DataGrid Row
         {
             dataGridHelper.EditDataGrid<Group>(e, table_name, dataGrid);
             load_data_grid();
-        }
+        }*/
         #endregion
 
         #region DataGrid: Deleting
@@ -55,22 +62,22 @@ namespace StudentsPract.Pages
         #endregion
 
         #region DataGrid: Filtering
-        public void FilterValue(object sender, EventArgs e)
+        /*public void FilterValue(object sender, EventArgs e)
         {
             dataGridHelper.FilterDataGrid<Group>(sender, e, dataGrid);
-        }
+        }*/
         #endregion
 
         #endregion
 
-        private void load_data_grid()
+        /*private void load_data_grid()
         {
             List<Group> values = DBTableHelper.GetGroupsTable();
 
             for (int i = 0; i < values.Count; i++) if (!group.Items.Contains(values[i].group)) group.Items.Add(values[i].group); // ComboBox repeat values check
 
             dataGrid.ItemsSource = values; // Binding items in DataGrid
-        }
+        }*/
     }
 
 }

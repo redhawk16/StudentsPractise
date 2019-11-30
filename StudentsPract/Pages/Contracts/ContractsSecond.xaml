@@ -6,10 +6,50 @@
       xmlns:local="clr-namespace:StudentsPract.Pages.Contracts"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ContractsSecond">
+      Title="ContractsSecond"
+      Style="{StaticResource PageStyle}">
 
     <Grid>
-        <TextBlock Text="Second Page" FontSize="65" Background="AliceBlue"/>
-        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Назад" Style="{StaticResource MyButton}" Command="{x:Static NavigationCommands.BrowseBack}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Left part -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto" MinWidth="150"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <!-- Row 1 -->
+                <Label Content="Вид практики" Grid.Column="0" Grid.Row="0"/>
+                <ComboBox x:Name="formPract" Grid.Column="1" Grid.Row="0"/>
+
+                <!-- Row 2 -->
+                <Label Content="Тип практики" Grid.Column="0" Grid.Row="1"/>
+                <ComboBox Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Right part -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0"></StackPanel>
+
+        <TreeView Grid.Row="1" Margin="0 10 0 0"></TreeView>
+
+        <TextBlock Text="2" FontSize="36" VerticalAlignment="Bottom" FontFamily="Arial Black" Opacity="0.4" Grid.Row="2"/>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+            <Button Content="Выход" Style="{StaticResource MyButton}" x:Name="btnClose" Click="Button_Click" VerticalAlignment="Bottom"/>
+            <Button Content="Назад" Style="{StaticResource MyButton}" Command="{x:Static NavigationCommands.BrowseBack}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+            <Button Content="Сформировать" Style="{StaticResource MyButton}" x:Name="btnCreate" Click="Button_Click" VerticalAlignment="Bottom"/>
+        </StackPanel>
     </Grid>
 </Page>

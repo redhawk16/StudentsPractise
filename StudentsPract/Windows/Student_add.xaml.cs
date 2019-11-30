@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsPract.Adapters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace StudentsPract.Windows
     /// </summary>
     public partial class Student_add : Window
     {
+        SQLiteAdapter adapter = new SQLiteAdapter();
+
         public Student_add()
         {
             InitializeComponent();
+
+            formStudy.ItemsSource = new List<string>() { "Бюджет", "Внебюджет" };
+
+            foreach(List<string> groups in adapter.GetValue("groups", "groupe"))
+            {
+                if(!group.Items.Contains(groups[0])) group.Items.Add(groups[0]);
+            }
+            
         }
 
         private void Button_Listener(object sender, RoutedEventArgs e) {
@@ -37,6 +48,14 @@ namespace StudentsPract.Windows
                 default:
                     break;
             }
+        }
+
+        private void formStudy_Selected(object sender, RoutedEventArgs e)
+        {
+            ComboBox ff = (ComboBox)sender;
+            int tt = ff.SelectedItem.ToString().Length;
+            ff = formStudy;
+            Console.WriteLine(ff);
         }
     }
 }

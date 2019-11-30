@@ -4,45 +4,110 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StudentsPract.Pages.Contracts"
+      xmlns:classes="clr-namespace:StudentsPract.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ContractsFirst">
+      Title="ContractsFirst"
+      Style="{StaticResource PageStyle}">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition />
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
         <!-- Left part -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="0">
-            <UniformGrid Columns="2">
-                <Label Content="Номер договора"/>
-                <TextBox/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                <Label Content="Наименование организации"/>
-                <Label Content="Тут combobox или textbox?" Foreground="Red"/>
+                <!-- Row 1 -->
+                <Label Content="Номер договора" Grid.Column="0" Grid.Row="0"/>
+                <TextBox Grid.Column="1" Grid.Row="0"/>
 
-                <Label Content="Руководитель практики"/>
-                <Label Content="Тут combobox или textbox?" Foreground="Red"/>
-            </UniformGrid>
+                <!-- Row 2 -->
+                <Label Content="Наименование организации" Grid.Column="0" Grid.Row="1"/>
+                <Label Content="Тут combobox или textbox?" Foreground="Red" Grid.Column="1" Grid.Row="1"/>
+
+                <!-- Row 3 -->
+                <Label Content="Руководитель практики" Grid.Column="0" Grid.Row="2"/>
+                <Label Content="Тут combobox или textbox?" Foreground="Red" Grid.Column="1" Grid.Row="2"/>
+            </Grid>
         </StackPanel>
         
         <!-- Right part -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0">
             <Label Content="Дата"/>
-            <DatePicker SelectedDateFormat="Short"/>           
+            <DatePicker x:Name="date" SelectedDateFormat="Short"/>
         </StackPanel>
 
-        <TreeView Grid.Row="1" Margin="0 10 0 0"></TreeView>
+        <StackPanel Grid.Row="1" Margin="0 10 0 0">
+
+            <TreeView x:Name="treeView" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=TreeView}">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type classes:Parent}" ItemsSource="{Binding Members}">
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(classes:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Unchecked="Button_PrintCrew_Click" Checked="Button_PrintCrew_Click">
+                            <!--
+                            <CheckBox.Style>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MyCheckBox}">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=(classes:ItemHelper.IsChecked)}" Value="False" >
+                                            <Setter Property="Foreground" Value="LightGray"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </CheckBox.Style>
+                            -->
+                        </CheckBox>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type classes:Child}" >
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(classes:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Unchecked="Button_PrintCrew_Click" Checked="Button_PrintCrew_Click">
+                            <!-- 
+                            <CheckBox.Style>
+                                <Style TargetType="{x:Type CheckBox}">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=(classes:ItemHelper.IsChecked)}" Value="False" >
+                                            <Setter Property="Foreground" Value="LightGray"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </CheckBox.Style>
+                            -->
+                        </CheckBox>
+                    </DataTemplate>
+                </TreeView.Resources>
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="False"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
+
+            <Button Content="?" Click="Button_PrintCrew_Click" />
+
+            <TextBlock x:Name="textBoxCrew"/>
+
+        </StackPanel>
 
         <TextBlock Text="1" FontSize="36" VerticalAlignment="Bottom" FontFamily="Arial Black" Opacity="0.4" Grid.Row="2"/>
 
         <!-- Buttons -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
-            <Button VerticalAlignment="Bottom" Content="Далее" Style="{StaticResource MyButton}" Click="Button_Click"/>
-            <Button VerticalAlignment="Bottom" Content="Выход" Style="{StaticResource MyButton}" Click="Button_Click"/>
+            <Button Content="Выход" Style="{StaticResource MyButton}" x:Name="btnClose" Click="Button_Click" VerticalAlignment="Bottom"/>
+            <Button Content="Далее" Style="{StaticResource MyButton}" x:Name="btnNext" Click="Button_Click" VerticalAlignment="Bottom"/>
         </StackPanel>
     </Grid>
 </Page>
