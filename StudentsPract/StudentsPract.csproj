@@ -17,6 +17,21 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,24 +99,64 @@
     </ApplicationDefinition>
     <Compile Include="Classes\DataModel.cs" />
     <Compile Include="Classes\DBTableHelper.cs" />
+    <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\ItemHelper.cs" />
+    <Compile Include="Pages\Cathedras\Cathedras_Add.xaml.cs">
+      <DependentUpon>Cathedras_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cathedras\Cathedras_Edit.xaml.cs">
+      <DependentUpon>Cathedras_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contracts\Contracts.xaml.cs">
+      <DependentUpon>Contracts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Contracts\ContractsFirst.xaml.cs">
       <DependentUpon>ContractsFirst.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contracts\ContractsSecond.xaml.cs">
       <DependentUpon>ContractsSecond.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Directions\Direction_Add.xaml.cs">
+      <DependentUpon>Direction_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Directions\Direction_Edit.xaml.cs">
+      <DependentUpon>Direction_Edit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Documents.xaml.cs">
       <DependentUpon>Documents.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Contracts.xaml.cs">
-      <DependentUpon>Contracts.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Contracts_add.xaml.cs">
+    <Compile Include="Pages\Contracts\Contracts_add.xaml.cs">
       <DependentUpon>Contracts_add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Student_add.xaml.cs">
-      <DependentUpon>Student_add.xaml</DependentUpon>
+    <Compile Include="Pages\Employees\Employee_Add.xaml.cs">
+      <DependentUpon>Employee_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employees\Employee_Edit.xaml.cs">
+      <DependentUpon>Employee_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Groups\Groups_Add.xaml.cs">
+      <DependentUpon>Groups_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Groups\Groups_Edit.xaml.cs">
+      <DependentUpon>Groups_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Others\Others.xaml.cs">
+      <DependentUpon>Others.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pract_bases\Pract.xaml.cs">
+      <DependentUpon>Pract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pract_bases\Pract_Add.xaml.cs">
+      <DependentUpon>Pract_Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pract_bases\Pract_Edit.xaml.cs">
+      <DependentUpon>Pract_Edit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Students\Students.xaml.cs">
+      <DependentUpon>Students.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Students\Student_Add.xaml.cs">
+      <DependentUpon>Student_Add.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +172,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Cathedras\Cathedras_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cathedras\Cathedras_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Contracts\Contracts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Contracts\ContractsFirst.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,11 +192,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Directions\Direction_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Directions\Direction_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Documents.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Groups.xaml">
+    <Page Include="Pages\Employees\Employee_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Employees\Employee_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Groups\Groups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Groups\Groups_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Groups\Groups_Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,11 +228,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Others\Others.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Pract_bases\Pract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Pract_bases\Pract_Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Pract_bases\Pract_Edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Preferences.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Students.xaml">
+    <Page Include="Pages\Students\Students.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Students\Student_Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,21 +280,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Contracts.xaml">
+    <Page Include="Pages\Contracts\Contracts_add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Contracts_add.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Student_add.xaml">
+    <Page Include="Pages\Students\Student_Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\Groups.xaml.cs">
+    <Compile Include="Pages\Groups\Groups.xaml.cs">
       <DependentUpon>Groups.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.xaml.cs">
@@ -192,8 +299,8 @@
     <Compile Include="Pages\Preferences.xaml.cs">
       <DependentUpon>Preferences.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Students.xaml.cs">
-      <DependentUpon>Students.xaml</DependentUpon>
+    <Compile Include="Pages\Students\Student_Edit.xaml.cs">
+      <DependentUpon>Student_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -227,6 +334,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

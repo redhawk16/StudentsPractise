@@ -13,14 +13,13 @@ using System.Windows.Input;
 
 namespace StudentsPract.Classes
 {
-    class DataGridHelper
+    static class DataGridHelper
     {
-        SQLiteAdapter sqliteAdapter = new SQLiteAdapter(); // create instance for SQLiteAdapter
 
         #region DataGrid
 
         #region DataGrid: Editing
-        public void EditDataGrid<T>(DataGridCellEditEndingEventArgs e, string table_name, DataGrid dataGrid) // Editing DataGrid Row
+        public static void EditDataGrid<T>(DataGridCellEditEndingEventArgs e, string table_name, DataGrid dataGrid) // Editing DataGrid Row
         {
             dynamic selected_items = (T)dataGrid.SelectedItem; // Getting DataGrid selected items(can get Student class properties)
             string column_name = e.Column.SortMemberPath; // Getting edited/changed column name
@@ -33,7 +32,7 @@ namespace StudentsPract.Classes
                 MessageBoxResult msgBox = MessageBox.Show("Вы действительно хотите изменить текушие данные?", "Изменение данных", MessageBoxButton.YesNo);
                 if (msgBox == MessageBoxResult.Yes) // If answer YES
                 {
-                    sqliteAdapter.ChangeValueById(table_name, selected_items.id, column_name, new_value);
+                    SQLiteAdapter.ChangeValueById(table_name, selected_items.id, column_name + " = '" + new_value + "'");
                     // TODO: Добавить проверку выполненности изменения данных в БД, если FALSE, то откат изменений в DataGrid
                 }
                 else
@@ -48,23 +47,22 @@ namespace StudentsPract.Classes
 
 
         #region DataGrid: Deleting
-        public void DeleteDataGrid<T>(KeyEventArgs e, string table_name, DataGrid dataGrid) // Deleting DataGrid Row
+        public static bool DeleteDataGrid<T>(DataGrid dataGrid) // Deleting DataGrid Row
         {
-            if (e.Key == Key.Delete)
+            string table_name = Helper.GetTNameByClass<T>(); // Get table name in database by class
+
+            MessageBoxResult msgBox = MessageBox.Show("Вы действительно хотите данное значение?", "Удаление значения", MessageBoxButton.YesNo);
+            if (msgBox == MessageBoxResult.Yes)
             {
-                MessageBoxResult msgBox = MessageBox.Show("Вы действительно хотите удалить данного студента?", "Удаление студента", MessageBoxButton.YesNo);
-                if (msgBox == MessageBoxResult.Yes)
-                {
-                    dynamic selected_items = (T)dataGrid.SelectedItem; // Getting DataGrid selected items(can get Student class properties)
-                    sqliteAdapter.DeleteRowById(table_name, selected_items.id);
-                }
-                else { e.Handled = true; } // Cancel delete row
+                dynamic selected_items = (T)dataGrid.SelectedItem; // Getting DataGrid selected items(can get Student class properties)
+                return SQLiteAdapter.DeleteRowById(table_name, selected_items.id);
             }
+            else { return true; } // Cancel delete row
         }
         #endregion
 
         #region DataGrid: Filtering
-        public void FilterDataGrid<T>(object sender, EventArgs e, DataGrid dataGrid)
+        public static void FilterDataGrid<T>(object sender, EventArgs e, DataGrid dataGrid)
         {
             dynamic control = (dynamic)sender;
             string filter = control.Text; // Entered Text

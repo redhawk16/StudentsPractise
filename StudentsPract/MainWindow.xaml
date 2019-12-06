@@ -97,6 +97,14 @@
                         </StackPanel>
                     </ListViewItem>
 
+                    <!-- Others page -->
+                    <ListViewItem Style="{StaticResource myListView}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xf009;" Style="{StaticResource LVITextFA}"/>
+                            <TextBlock Text="Прочее"/>
+                        </StackPanel>
+                    </ListViewItem>
+
                     <!-- Remind page -->
                     <!--
                     <ListViewItem Style="{StaticResource myListView}">
@@ -106,6 +114,7 @@
                         </StackPanel>
                     </ListViewItem>
                     -->
+                    
                 </ListView>
 
                 <ListView x:Name="BottomMenu"
@@ -175,7 +184,7 @@
                         </Button>
                         
                         <!--Close Button-->
-                        <Button Name="Close" Style="{StaticResource Button_Controls}"
+                        <Button x:Name="Close" Style="{StaticResource Button_Controls}"
                                 WindowChrome.IsHitTestVisibleInChrome="True"
                                 Click="ButtonClose_Click">
                             <Grid Width="30" Height="25">
@@ -187,7 +196,10 @@
                 </Grid>
 
                 <!-- Content zone -->
-                <Grid x:Name="ContentView" Margin="10" DockPanel.Dock="Top"/>
+                <ScrollViewer>
+                    <Grid x:Name="ContentView" Margin="10" DockPanel.Dock="Top"/>
+                    
+                </ScrollViewer>
 
             </DockPanel>
         </Grid>

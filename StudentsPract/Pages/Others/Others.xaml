@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="StudentsPract.Pages.Others.Others"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentsPract.Pages.Others"
+             xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
+             xmlns:classes="clr-namespace:StudentsPract.Classes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Прочее" FontSize="24" Margin="0 0 0 10"/>
+
+            <!-- Cathedras -->
+            <Expander Header="Список кафедр">
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 10">
+                        <Button x:Name="btnAdd_cathedra" Content="Добавить" Style="{StaticResource MyButton}" Click="ButtonListener_Manage"/>
+                        <Button x:Name="btnEdit_cathedra" Content="Редактировать" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=CathedrasGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btnDel_cathedra" Content="Удалить" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=CathedrasGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <DataGrid x:Name="CathedrasGrid" IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              ItemsSource="{x:Static classes:Helper.OCathedras}"
+                              dgx:DataGridFilter.IsAutoFilterEnabled="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding number, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Кафедра" Binding="{Binding cathedra, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Декан" x:Name="decan_names">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0} {1} {2}">
+                                        <Binding Path="surname" Mode="TwoWay"/>
+                                        <Binding Path="name" Mode="TwoWay"/>
+                                        <Binding Path="patronymic" Mode="TwoWay"/>
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер телефона" Binding="{Binding phone, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Expander>
+            
+            <!-- Employees -->
+            <Expander Header="Сотрудники кафедры">
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 10">
+                        <Button x:Name="btnAdd_employee" Content="Добавить" Style="{StaticResource MyButton}" Click="ButtonListener_Manage"/>
+                        <Button x:Name="btnEdit_employee" Content="Редактировать" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=EmployeesGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btnDel_employee" Content="Удалить" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=EmployeesGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <DataGrid x:Name="EmployeesGrid" IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              ItemsSource="{x:Static classes:Helper.OEmployees}"
+                              dgx:DataGridFilter.IsAutoFilterEnabled="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding surname, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding name, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding patronymic, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Эл. почта" Binding="{Binding email, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Номер телефона" Binding="{Binding phone, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Логин" Binding="{Binding login, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Уровень доступа" Binding="{Binding lvl, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Expander>
+            
+            <!-- Directions -->
+            <Expander Header="Список направлении">
+                <StackPanel Orientation="Vertical" Margin="0 0 0 10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 0 10">
+                        <Button x:Name="btnAdd_direction" Content="Добавить" Style="{StaticResource MyButton}" Click="ButtonListener_Manage"/>
+                        <Button x:Name="btnEdit_direction" Content="Редактировать" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=DirectionsGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="btnDel_direction" Content="Удалить" Click="ButtonListener_Manage">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=DirectionsGrid, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <DataGrid x:Name="DirectionsGrid" IsReadOnly="True"
+                              AutoGenerateColumns="False" 
+                              ItemsSource="{x:Static classes:Helper.ODirections}"
+                              dgx:DataGridFilter.IsAutoFilterEnabled="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название направления" Binding="{Binding name, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Код направления" Binding="{Binding code, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Кафедра" Binding="{Binding id_cathedra, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Expander>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

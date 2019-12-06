@@ -1,4 +1,10 @@
-﻿using StudentsPract.Pages;
+﻿using StudentsPract.Adapters;
+using StudentsPract.Classes;
+using StudentsPract.Pages;
+using StudentsPract.Pages.Groups;
+using StudentsPract.Pages.Others;
+using StudentsPract.Pages.Pract_bases;
+using StudentsPract.Pages.Students;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,9 +27,11 @@ namespace StudentsPract
     /// </summary>
     public partial class MainWindow : Window
     {
+        SQLiteAdapter sqliteAdapter = SQLiteAdapter.getInstance();
+        Helper helper = Helper.getInstance();
 
         private bool hamburger_menu_open = true;
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +40,6 @@ namespace StudentsPract
             //this.MaxWidth = SystemParameters.WorkArea.Width;
 
             TopMenu.SelectedIndex = 0; // Set home screen page is activated after startup application and initialize components
-
         }
 
         private void hamburger_Click(object sender, RoutedEventArgs e)
@@ -49,6 +56,7 @@ namespace StudentsPract
 
         private void TopListView_Selected(object sender, SelectionChangedEventArgs e)
         {
+            
             if (((ListView)sender).SelectedIndex != -1) // Kostil for a listview selected items
             {
                 //int index = -1;
@@ -58,7 +66,7 @@ namespace StudentsPract
 
                 if (name.Equals("BottomMenu"))
                 {
-                    index = 6;
+                    index = 7;
                 }
 
                 if (ContentView.IsInitialized)
@@ -79,17 +87,21 @@ namespace StudentsPract
                             break;
                         case 3: // Реестр баз практики
                             ContentView.Children.Clear();
-                            //ContentView.Children.Add(new Practises());
+                            ContentView.Children.Add(new Pract());
                             break;
                         case 4: // Документы
                             ContentView.Children.Clear();
                             ContentView.Children.Add(new Documents());
                             break;
-                        case 5: // Уведомления
+                        case 5: // Прочее
+                            ContentView.Children.Clear();
+                            ContentView.Children.Add(new Others());
+                            break;
+                        case 6: // Уведомления
                             ContentView.Children.Clear();
                             //ContentView.Children.Add(new Reminders());
                             break;
-                        case 6: // Параметры
+                        case 7: // Параметры
                             ContentView.Children.Clear();
                             ContentView.Children.Add(new Preferences());
                             break;

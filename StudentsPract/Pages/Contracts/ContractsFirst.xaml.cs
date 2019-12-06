@@ -37,13 +37,13 @@ namespace StudentsPract.Pages.Contracts
 
             // TreeView fill
             this.TreeView = new ObservableCollection<Parent>();
-            List<List<string>> directions = adapter.GetValue("directions", "code");
+            List<List<string>> directions = SQLiteAdapter.GetValue("directions", "code");
 
             foreach(List<string> tmp in directions)
             {
                 List<Child> Member = new List<Child>();
 
-                List<List<string>> study_years = adapter.GetValue("groups INNER JOIN directions ON directions.name=groups.direction WHERE code ='" + tmp[0] + "'", "groups.enroll_year, groups.end_year");
+                List<List<string>> study_years = SQLiteAdapter.GetValue("groups INNER JOIN directions ON directions.name=groups.direction WHERE code ='" + tmp[0] + "'", "groups.enroll_year, groups.end_year");
                 foreach(List<string> tmpYears in study_years)
                 {
                     int enroll = Convert.ToInt32(tmpYears[0]); // Год поступления 

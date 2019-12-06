@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using StudentsPract.Pages.Students;
+using StudentsPract.Pages.Contracts;
+using StudentsPract.Pages.Groups;
 
 namespace StudentsPract.Pages
 {
@@ -37,21 +40,22 @@ namespace StudentsPract.Pages
         {
             Button button = (Button)sender;
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-
+            
             switch (button.Name)
             {
                 case "AddStudent":
+                    new Student_Add().ShowDialog();
                     mainWindow.TopMenu.SelectedIndex = 2;
-                    new Windows.Student_add().ShowDialog();
                     break;
                 case "AddGroup":
+                    new Groups_Add().ShowDialog();
                     mainWindow.TopMenu.SelectedIndex = 1;
                     break;
                 case "AddOrder":
                     break;
                 case "AddContract":
                     mainWindow.TopMenu.SelectedIndex = 4;
-                    new Windows.Contracts().ShowDialog();
+                    new Pages.Contracts.Contracts().ShowDialog();
                     break;
                 default:
                     break;

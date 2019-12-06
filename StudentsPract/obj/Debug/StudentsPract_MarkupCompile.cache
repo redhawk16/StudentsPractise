@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\CSharp\StudentsPract\StudentsPract\App.xaml
-172100470686
+30-406052100
 
-20304834653
+34-900826069
 211809784609
-MainWindow.xaml;Pages\Contracts\ContractsFirst.xaml;Pages\Contracts\ContractsSecond.xaml;Pages\Documents.xaml;Pages\Groups.xaml;Pages\Home.xaml;Pages\Preferences.xaml;Pages\Students.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;Themes\Dark.xaml;Themes\Light.xaml;Windows\Contracts.xaml;Windows\Contracts_add.xaml;Windows\Student_add.xaml;
+MainWindow.xaml;Pages\Cathedras\Cathedras_Add.xaml;Pages\Cathedras\Cathedras_Edit.xaml;Pages\Contracts\Contracts.xaml;Pages\Contracts\ContractsFirst.xaml;Pages\Contracts\ContractsSecond.xaml;Pages\Directions\Direction_Add.xaml;Pages\Directions\Direction_Edit.xaml;Pages\Documents.xaml;Pages\Employees\Employee_Add.xaml;Pages\Employees\Employee_Edit.xaml;Pages\Groups\Groups.xaml;Pages\Groups\Groups_Add.xaml;Pages\Groups\Groups_Edit.xaml;Pages\Home.xaml;Pages\Others\Others.xaml;Pages\Pract_bases\Pract.xaml;Pages\Pract_bases\Pract_Add.xaml;Pages\Pract_bases\Pract_Edit.xaml;Pages\Preferences.xaml;Pages\Students\Students.xaml;Pages\Students\Student_Edit.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\Windows.xaml;Themes\Dark.xaml;Themes\Light.xaml;Pages\Contracts\Contracts_add.xaml;Pages\Students\Student_Add.xaml;
 
 False
 
