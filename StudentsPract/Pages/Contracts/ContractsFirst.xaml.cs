@@ -27,6 +27,9 @@ namespace StudentsPract.Pages.Contracts
         public ObservableCollection<Parent> TreeView { get; set; }
         private List<Control> controls = new List<Control>();
 
+        private List<string> selected_dir = new List<string>();
+        private List<List<string>> selected_course = new List<List<string>>();
+
         public ContractsFirst()
         {
             InitializeComponent();
@@ -112,8 +115,6 @@ namespace StudentsPract.Pages.Contracts
         private void Button_PrintCrew_Click(object sender, RoutedEventArgs e)
         {
             // selected_dir - хранятся выбранные направления соответстувющие индексу в массиве selected_course - выбранные курсы
-            List<string> selected_dir = new List<string>();
-            List<List<string>> selected_course = new List<List<string>>();
             string selected = "";
             foreach (Parent parent in this.TreeView)
             {
@@ -157,7 +158,12 @@ namespace StudentsPract.Pages.Contracts
                      *  -   selected_course - выбранные курсы)
                      */
                     if (this.NavigationService.CanGoForward) this.NavigationService.GoForward();
-                    else this.NavigationService.Navigate(new ContractsSecond());
+                    else this.NavigationService.Navigate(new ContractsSecond(contract_num.Text.Trim(), 
+                                                                                contract_org.Text.Trim(), 
+                                                                                contract_empl.Text.Trim(), 
+                                                                                date.Text.Trim(), 
+                                                                                selected_dir, 
+                                                                                selected_course));
                     Trace.WriteLine("Page 1 navigating to page 2");
                     break;
                 default:

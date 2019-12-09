@@ -137,10 +137,12 @@ namespace StudentsPract.Classes
             User = 0,
             Admin = 1
         }
-
         #endregion
 
+        public static List<string> Practise_Types = new List<string> { "Учебная", "Производственная" };
+
     }
+
 
     #region Classes
 

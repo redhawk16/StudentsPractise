@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsPract.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,20 @@ namespace StudentsPract.Pages.Contracts
     /// </summary>
     public partial class ContractsSecond : Page
     {
-        public ContractsSecond()
+        public ContractsSecond(string contract_num, // Номер договора
+                                string contract_org, // База практики
+                                string contract_empl, // Руководитель практики
+                                string date, // Дата
+                                List<string> selected_dir, // Список выбранных направлений
+                                List<List<string>> selected_course) // Список выбранных курсов
         {
             InitializeComponent();
             
-            formPract.ItemsSource = new List<string> { "Учебная", "Производственная" }; // Вид практики
+            formPract.ItemsSource = Helper.Practise_Types; // Вид практики
 
             /* TODO:
-             * Получаем на вход данные из ContractsFirst 
-             * В type_pract исходя из полученных данных, получить обьедененные типы практики из таблиц => занести необходимые группы в TreeView 
+             * Получаем на вход данные из ContractsFirst
+             * В type_pract исходя из полученных данных, получить обьедененные типы практики из таблиц => занести необходимые группы в TreeView
              */
         }
 

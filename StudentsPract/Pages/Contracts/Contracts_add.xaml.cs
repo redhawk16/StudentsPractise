@@ -32,10 +32,9 @@ namespace StudentsPract.Pages.Contracts
             */
 
             /* Insert data to comboboxes */
-            List<string> formPract_array = new List<string> { "Учебная", "Производственная" }; // Вид практики
             List<string> typePract_array = new List<string> { "Практика по профилю подготовки", "Научно-исследовательская практика", "Преддипломная практика" }; // Тип практики
 
-            formPract.ItemsSource = formPract_array;
+            formPract.ItemsSource = Helper.Practise_Types; // Вид практики
             typePract.ItemsSource = typePract_array;
 
             load_data_grid();
