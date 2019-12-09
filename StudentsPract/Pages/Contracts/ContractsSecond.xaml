@@ -34,7 +34,7 @@
 
                 <!-- Row 2 -->
                 <Label Content="Тип практики" Grid.Column="0" Grid.Row="1"/>
-                <ComboBox Grid.Column="1" Grid.Row="1"/>
+                <ComboBox x:Name="type_pract" Grid.Column="1" Grid.Row="1"/>
             </Grid>
         </StackPanel>
 

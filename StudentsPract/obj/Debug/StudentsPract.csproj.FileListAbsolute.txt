@@ -123,3 +123,6 @@ D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.exe
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.pdb
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Directions\Direction_Edit.g.cs
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Directions\Direction_Edit.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.csprojAssemblyReference.cache
+D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\EPPlus.dll
+D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\EPPlus.xml

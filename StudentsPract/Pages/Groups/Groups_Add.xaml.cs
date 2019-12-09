@@ -59,8 +59,8 @@ namespace StudentsPract.Pages.Groups
                     this.Close();
                     break;
                 case "btnAdd":
-                    string[] sel_direction = direction.SelectedItem.ToString().Trim().Split();
-                    string direction_id = SQLiteAdapter.GetValue($"directions WHERE name = '{sel_direction[0]}'", "id")[0][0];
+                    string sel_direction = direction.SelectedItem.ToString().Trim();
+                    string direction_id = SQLiteAdapter.GetValue($"directions WHERE name = '{sel_direction}'", "id")[0][0];
 
                     SQLiteAdapter.SetValue("groups",
                             groupe.Text.Trim(),

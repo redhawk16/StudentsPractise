@@ -122,6 +122,7 @@ namespace StudentsPract.Adapters
                     "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "[name] TEXT NOT NULL," +
                     "[address] TEXT NOT NULL," +
+                    "[employeer] TEXT NOT NULL," +
                     "[phone] TEXT NOT NULL," +
                     "[date_end]  TEXT NOT NULL" +
             ")" });
@@ -211,8 +212,8 @@ namespace StudentsPract.Adapters
                             $"VALUES(@param1, @param2, @param3)";
                         break;
                     case "practise_base":
-                        query = $"INSERT INTO [{table_name}]('name', 'address', 'phone', 'date_end') " +
-                            $"VALUES(@param1, @param2, @param3, @param4)";
+                        query = $"INSERT INTO [{table_name}]('name', 'address', 'employeer', 'phone', 'date_end') " +
+                            $"VALUES(@param1, @param2, @param3, @param4, @param5)";
                         break;
                     default:
                         break;

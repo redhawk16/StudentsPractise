@@ -25,6 +25,11 @@ namespace StudentsPract.Pages.Contracts
             InitializeComponent();
             
             formPract.ItemsSource = new List<string> { "Учебная", "Производственная" }; // Вид практики
+
+            /* TODO:
+             * Получаем на вход данные из ContractsFirst 
+             * В type_pract исходя из полученных данных, получить обьедененные типы практики из таблиц => занести необходимые группы в TreeView 
+             */
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

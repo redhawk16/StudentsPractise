@@ -30,18 +30,20 @@ namespace StudentsPract.Pages.Pract_bases
 
             this.practise = practise;
 
-            controls = new List<Control>() { name, address, phone, date_end };
+            controls = new List<Control>() { name, address, employeer, phone, date_end };
 
             date_end.DisplayDateStart = DateTime.Today;
 
             name.Text = practise.name;
             address.Text = practise.address;
+            employeer.Text = practise.employeer;
             phone.Text = practise.phone;
             date_end.Text = practise.date_end;
 
             // EventHandler's
             name.TextChanged += Controls_Listener;
             address.TextChanged += Controls_Listener;
+            employeer.TextChanged += Controls_Listener;
             phone.TextChanged += Controls_Listener;
             date_end.SelectedDateChanged += Controls_Listener;
         }
@@ -63,6 +65,7 @@ namespace StudentsPract.Pages.Pract_bases
                 case "btnChange":
                     string new_value =  "name = '" + name.Text.Trim() + "', " +
                                         "address = '" + address.Text.Trim() + "', " +
+                                        "employeer = '" + employeer.Text.Trim() + "', " +
                                         "phone = '" + phone.Text.Trim() + "', " +
                                         "date_end = '" + date_end.Text.Trim() + "'";
                     SQLiteAdapter.ChangeValueById("practise_base", practise.id, new_value);

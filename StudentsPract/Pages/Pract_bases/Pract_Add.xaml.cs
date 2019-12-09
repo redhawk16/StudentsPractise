@@ -27,13 +27,14 @@ namespace StudentsPract.Pages.Pract_bases
         {
             InitializeComponent();
 
-            controls = new List<Control>() { name, address, phone, date_end };
+            controls = new List<Control>() { name, address, phone, employeer, date_end };
 
             date_end.DisplayDateStart = DateTime.Today;
 
             // EventHandler's
             name.TextChanged += Controls_Listener;
             address.TextChanged += Controls_Listener;
+            employeer.TextChanged += Controls_Listener;
             phone.TextChanged += Controls_Listener;
             date_end.SelectedDateChanged += Controls_Listener;
         }
@@ -56,6 +57,7 @@ namespace StudentsPract.Pages.Pract_bases
                     SQLiteAdapter.SetValue("practise_base",
                             name.Text.Trim(),
                             address.Text.Trim(),
+                            employeer.Text.Trim(),
                             phone.Text.Trim(),
                             date_end.Text.Trim()
                     );

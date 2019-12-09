@@ -66,12 +66,15 @@
 
                     <Label Content="Адрес" Grid.Column="0" Grid.Row="1" Margin="0 0 0 10"/>
                     <TextBox x:Name="address" Grid.Column="1" Grid.Row="1" Margin="10 0 0 10"/>
+                    
+                    <Label Content="Руководитель" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10"/>
+                    <TextBox x:Name="employeer" Grid.Column="1" Grid.Row="2" Margin="10 0 0 10"/>
 
-                    <Label Content="Телефон" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10"/>
-                    <TextBox x:Name="phone" Grid.Column="1" Grid.Row="2" Margin="10 0 0 10"/>
+                    <Label Content="Телефон" Grid.Column="0" Grid.Row="3" Margin="0 0 0 10"/>
+                    <TextBox x:Name="phone" Grid.Column="1" Grid.Row="3" Margin="10 0 0 10"/>
 
-                    <Label Content="Дата окончания" Grid.Column="0" Grid.Row="3" Margin="0 0 0 10"/>
-                    <DatePicker x:Name="date_end" Grid.Column="1" Grid.Row="3" Margin="10 0 0 10"/>
+                    <Label Content="Дата окончания" Grid.Column="0" Grid.Row="4" Margin="0 0 0 10"/>
+                    <DatePicker x:Name="date_end" Grid.Column="1" Grid.Row="4" Margin="10 0 0 10"/>
                 
                 </Grid>
             </StackPanel>
