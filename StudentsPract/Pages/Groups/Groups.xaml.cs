@@ -68,24 +68,26 @@ namespace StudentsPract.Pages.Groups
 
         #endregion
 
-        private void Student_Hotkey(object sender, RoutedEventArgs e)
+        private void Group_Hotkey(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
 
             switch (button.Name)
             {
-                case "Student_add":
+                case "Group_add":
                     new Groups_Add().ShowDialog();
                     break;
-                case "Student_edit":
+                case "Group_edit":
                     if (dataGrid.SelectedIndex != -1) { new Groups_Edit(dataGrid.SelectedItem as Group).ShowDialog(); }
                     break;
-                case "Student_del":
+                case "Group_del":
                     if (dataGrid.SelectedIndex != -1) 
                     {
                         if(DataGridHelper.DeleteDataGrid<Group>(dataGrid) == false)
                         {
+                            string group_id = ((Group)dataGrid.SelectedItem).id;
                             Helper.OGroups.Remove(Helper.OGroups.Where(i => i.Equals(dataGrid.SelectedItem)).Single()); // Deleting row from OCathedras(ObservableCollection)
+                            SQLiteAdapter.DeleteRowById("pract_types", $"[id_groupe]='{group_id}'");
                         }
                     }
                     break;

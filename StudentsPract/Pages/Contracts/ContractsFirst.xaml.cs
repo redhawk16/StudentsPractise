@@ -27,8 +27,8 @@ namespace StudentsPract.Pages.Contracts
         public ObservableCollection<Parent> TreeView { get; set; }
         private List<Control> controls = new List<Control>();
 
-        private List<string> selected_dir = new List<string>();
-        private List<List<string>> selected_course = new List<List<string>>();
+        private List<string> selected_dir;
+        private List<List<string>> selected_course;
 
         public ContractsFirst()
         {
@@ -64,7 +64,10 @@ namespace StudentsPract.Pages.Contracts
                     int month = DateTime.Today.Month - 9;
                     if (month >= 0) course++;
 
-                    Member.Add(new Child() { Name = course + " курс" });
+                    if (!Member.Exists(i=>i.Name.Equals(course + " курс")))
+                    {
+                        Member.Add(new Child() { Name = course + " курс" });
+                    }
                 }
 
                 if(Member.Count != 0)
@@ -115,7 +118,10 @@ namespace StudentsPract.Pages.Contracts
         private void Button_PrintCrew_Click(object sender, RoutedEventArgs e)
         {
             // selected_dir - хранятся выбранные направления соответстувющие индексу в массиве selected_course - выбранные курсы
-            string selected = "";
+        selected_dir = new List<string>();
+        selected_course = new List<List<string>>();
+
+        string selected = "";
             foreach (Parent parent in this.TreeView)
             {
                 List<string> tmp = new List<string>();
@@ -157,8 +163,9 @@ namespace StudentsPract.Pages.Contracts
                      *  -   selected_dir - выбранные направления
                      *  -   selected_course - выбранные курсы)
                      */
-                    if (this.NavigationService.CanGoForward) this.NavigationService.GoForward();
-                    else this.NavigationService.Navigate(new ContractsSecond(contract_num.Text.Trim(), 
+                    //if (this.NavigationService.CanGoForward) this.NavigationService.GoForward();
+                    //else 
+                    this.NavigationService.Navigate(new ContractsSecond(contract_num.Text.Trim(), 
                                                                                 contract_org.Text.Trim(), 
                                                                                 contract_empl.Text.Trim(), 
                                                                                 date.Text.Trim(), 

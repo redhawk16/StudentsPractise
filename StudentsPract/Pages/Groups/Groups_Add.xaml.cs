@@ -22,6 +22,7 @@ namespace StudentsPract.Pages.Groups
     public partial class Groups_Add : Window
     {
         private List<Control> controls = new List<Control>();
+        private List<Practise_Type> practise_Types = new List<Practise_Type>();
 
         public Groups_Add()
         {
@@ -35,6 +36,8 @@ namespace StudentsPract.Pages.Groups
             {
                 if (!direction.Items.Contains(groups[0])) direction.Items.Add(groups[0]);
             }
+
+            typePract.ItemsSource = practise_Types;
 
             // EventHandler's
             groupe.TextChanged += Controls_Listener;
@@ -70,6 +73,18 @@ namespace StudentsPract.Pages.Groups
                             end.Text.Trim()
                     );
                     Helper.RefreshOCollection();
+
+                    string group_id = SQLiteAdapter.GetValue($"groups WHERE groupe='{groupe.Text.Trim()}' " +
+                        $"AND direction='{direction_id.Trim()}' " +
+                        $"AND form_study='{form_study.SelectedItem.ToString().Trim()}' " +
+                        $"AND enroll_year='{enroll.Text.Trim()}'" +
+                        $"AND end_year='{end.Text.Trim()}'", "id")[0][0];
+
+                    for (int i = 0; i < practise_Types.Count; i++)
+                    {
+                        if (practise_Types[i].type_name.ToString().Trim().Length > 0)
+                            SQLiteAdapter.SetValue("pract_types", group_id, practise_Types[i].type_name.ToString().Trim());
+                    }
                     this.Close();
                     break;
                 default:

@@ -55,7 +55,7 @@ namespace StudentsPract.Classes
             if (msgBox == MessageBoxResult.Yes)
             {
                 dynamic selected_items = (T)dataGrid.SelectedItem; // Getting DataGrid selected items(can get Student class properties)
-                return SQLiteAdapter.DeleteRowById(table_name, selected_items.id);
+                return SQLiteAdapter.DeleteRowById(table_name, $"[id] = '{selected_items.id}'");
             }
             else { return true; } // Cancel delete row
         }

@@ -128,6 +128,16 @@ namespace StudentsPract.Adapters
             ")" });
             #endregion
 
+            #region Table: pract_types
+            queries.Add(new string[] { "pract_types", "CREATE TABLE [pract_types] (" +
+                    "[id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "[id_groupe] INTEGER NOT NULL," +
+                    "[type_name] TEXT NOT NULL," +
+                    "FOREIGN KEY([id_groupe]) REFERENCES [groups]([id])" +
+            ")" });
+            #endregion
+
+
             #endregion
 
             if (!Directory.Exists(db_path)) { Directory.CreateDirectory(db_path); } // create databse directory if not exists
@@ -215,6 +225,10 @@ namespace StudentsPract.Adapters
                         query = $"INSERT INTO [{table_name}]('name', 'address', 'employeer', 'phone', 'date_end') " +
                             $"VALUES(@param1, @param2, @param3, @param4, @param5)";
                         break;
+                    case "pract_types":
+                        query = $"INSERT INTO [{table_name}]('id_groupe', 'type_name') " +
+                            $"VALUES(@param1, @param2)";
+                        break;
                     default:
                         break;
                 }
@@ -257,7 +271,7 @@ namespace StudentsPract.Adapters
             {
                 string query;
 
-                query = $"DELETE FROM [{table_name}] WHERE [id] = '{id}'";
+                query = $"DELETE FROM [{table_name}] WHERE {id}";
                 connect(query);
                 if ((connection.State.ToString()).Equals("Open"))
                 {

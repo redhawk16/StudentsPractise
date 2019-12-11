@@ -125,6 +125,7 @@ namespace StudentsPract.Classes
             else if (typeof(T).Name.Equals("Employee")) return "employees";
             else if (typeof(T).Name.Equals("Direction")) return "directions";
             else if (typeof(T).Name.Equals("Practise")) return "practise_base";
+            else if (typeof(T).Name.Equals("Practise_Type")) return "pract_types";
 
             return "Error";
         }
@@ -139,7 +140,7 @@ namespace StudentsPract.Classes
         }
         #endregion
 
-        public static List<string> Practise_Types = new List<string> { "Учебная", "Производственная" };
+        public static List<string> Practise_Forms = new List<string> { "Учебная", "Производственная" };
 
     }
 
@@ -210,6 +211,13 @@ namespace StudentsPract.Classes
         public string employeer { get; set; }
         public string phone { get; set; }
         public string date_end { get; set; }
+    }
+
+    public class Practise_Type
+    {
+        public string id { get; set; }
+        public string id_groupe { get; set; }
+        public string type_name { get; set; }
     }
     #endregion
 }

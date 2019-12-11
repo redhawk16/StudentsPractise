@@ -52,7 +52,9 @@
 
         <StackPanel Grid.Row="1" Margin="0 10 0 0">
 
-            <TreeView x:Name="treeView" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=TreeView}">
+            <TreeView x:Name="treeView" 
+                      MinHeight="150"
+                      ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=TreeView}">
                 <TreeView.Resources>
                     <HierarchicalDataTemplate DataType="{x:Type classes:Parent}" ItemsSource="{Binding Members}">
                         <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(classes:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Unchecked="Button_PrintCrew_Click" Checked="Button_PrintCrew_Click">

@@ -2,6 +2,7 @@
 using StudentsPract.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace StudentsPract.Pages.Groups
     {
         private Group group;
         private List<Control> controls = new List<Control>();
+        private List<Practise_Type> practise_Types = new List<Practise_Type>();
 
         public Groups_Edit(Group group)
         {
@@ -43,6 +45,17 @@ namespace StudentsPract.Pages.Groups
             form_study.SelectedItem = group.form_study;
             enroll.Text = group.enroll_year;
             end.Text = group.end_year;
+
+            List<List<string>> LGroups = SQLiteAdapter.GetValue($"pract_types INNER JOIN groups ON groups.id=pract_types.id_groupe WHERE groupe='{group.groupe}'", "pract_types.type_name");
+            if(LGroups.Count > 0)
+            {
+                foreach(List<string> tmp in LGroups)
+                {
+                    practise_Types.Add(new Practise_Type { type_name=tmp[0] });
+                    //if(!typePract.Items.Contains(tmp[0])) typePract.Items.Add(tmp[0]);
+                }
+            }
+            typePract.ItemsSource = practise_Types;
 
             // EventHandler's
             groupe.TextChanged += Controls_Listener;
@@ -77,6 +90,14 @@ namespace StudentsPract.Pages.Groups
                                         "end_year = '" + end.Text.Trim() + "'";
                     SQLiteAdapter.ChangeValueById("groups", group.id, new_value);
                     Helper.RefreshOCollection();
+
+                    SQLiteAdapter.DeleteRowById("pract_types", $"[id_groupe]='{group.id}'");
+
+                    for(int i = 0; i < practise_Types.Count; i++)
+                    {
+                        if(practise_Types[i].type_name.ToString().Trim().Length > 0)
+                            SQLiteAdapter.SetValue("pract_types", group.id, practise_Types[i].type_name.ToString().Trim());
+                    }
                     this.Close();
                     break;
                 default:
