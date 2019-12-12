@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StudentsPract.Pages.Contracts"
+      xmlns:classes="clr-namespace:StudentsPract.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ContractsSecond"
@@ -12,7 +13,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition />
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -40,8 +41,34 @@
 
         <!-- Right part -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0"></StackPanel>
+        
+        <StackPanel Grid.Row="1" Margin="0 10 0 0">
+            <TreeView x:Name="treeView" 
+                          MinHeight="150"
+                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=TreeView}">
+            
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type classes:Parent}" ItemsSource="{Binding Members}">
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(classes:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Unchecked="Button_PrintCrew_Click" Checked="Button_PrintCrew_Click"/>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type classes:Child}" >
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding Path=(classes:ItemHelper.IsChecked), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                  Unchecked="Button_PrintCrew_Click" Checked="Button_PrintCrew_Click"/>
+                    </DataTemplate>
+                </TreeView.Resources>
+            
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="False"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>
 
-        <TreeView Grid.Row="1" Margin="0 10 0 0"></TreeView>
+            <Button Content="?" Click="Button_PrintCrew_Click" />
+
+            <TextBlock x:Name="textBoxCrew"/>
+        </StackPanel>
 
         <TextBlock Text="2" FontSize="36" VerticalAlignment="Bottom" FontFamily="Arial Black" Opacity="0.4" Grid.Row="2"/>
 

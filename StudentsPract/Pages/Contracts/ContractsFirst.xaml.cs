@@ -118,10 +118,10 @@ namespace StudentsPract.Pages.Contracts
         private void Button_PrintCrew_Click(object sender, RoutedEventArgs e)
         {
             // selected_dir - хранятся выбранные направления соответстувющие индексу в массиве selected_course - выбранные курсы
-        selected_dir = new List<string>();
-        selected_course = new List<List<string>>();
+            selected_dir = new List<string>();
+            selected_course = new List<List<string>>();
 
-        string selected = "";
+            string selected = "";
             foreach (Parent parent in this.TreeView)
             {
                 List<string> tmp = new List<string>();
@@ -163,6 +163,7 @@ namespace StudentsPract.Pages.Contracts
                      *  -   selected_dir - выбранные направления
                      *  -   selected_course - выбранные курсы)
                      */
+
                     //if (this.NavigationService.CanGoForward) this.NavigationService.GoForward();
                     //else 
                     this.NavigationService.Navigate(new ContractsSecond(contract_num.Text.Trim(), 
