@@ -80,15 +80,6 @@ namespace StudentsPract.Pages.Contracts
                 }
             }
 
-
-            /*this.TreeView.Add(new Parent() { 
-                Name = "Simpsons", 
-                Members = new List<Child>() { 
-                    new Child() { Name = "Homer" }, 
-                    new Child() { Name = "Bart" } 
-                } 
-            });*/
-
             foreach (Parent parent in this.TreeView)
             {
                 foreach (Child child in parent.Members)

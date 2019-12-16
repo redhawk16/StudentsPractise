@@ -1,5 +1,4 @@
-﻿using OfficeOpenXml;
-using StudentsPract.Adapters;
+﻿using StudentsPract.Adapters;
 using StudentsPract.Classes;
 using System;
 using System.Collections.Generic;
@@ -58,7 +57,7 @@ namespace StudentsPract.Pages.Contracts
             this.contract_empl = contract_empl;
             this._date = Convert.ToDateTime(date);
 
-            this.dir = $"{Directory.GetCurrentDirectory()}\\documents\\contracts\\Contract-{contract_num}\\";
+            this.dir = $"{Directory.GetCurrentDirectory()}\\documents\\contracts\\Договор №{contract_num}\\";
 
             this.selected_dir = selected_dir;
             this.selected_course = selected_course;
@@ -129,7 +128,7 @@ namespace StudentsPract.Pages.Contracts
         private bool CreateContract()
         {
             try {
-                string file = $"contract.docx";
+                string file = $"Договор.docx";
                 if (!Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
 
                 // создаём документ
@@ -238,7 +237,7 @@ namespace StudentsPract.Pages.Contracts
         {
             try
             {
-                string file = $"attachment first.docx";
+                string file = $"Приложение 1.docx";
 
                 // создаём документ
                 DocX document = DocX.Create(dir + file);
@@ -257,7 +256,7 @@ namespace StudentsPract.Pages.Contracts
                 // располагаем таблицу по центру
                 table.Alignment = Alignment.center;
                 table.AutoFit = AutoFit.Contents;
-
+                
                 #region Стандартное заполнение
                 table.Rows[0].Cells[0].Paragraphs[0].Append("№ п/п").Alignment = Alignment.center;
                 table.Rows[0].Cells[1].Paragraphs[0].Append("Направление /специальность").Alignment = Alignment.center;
@@ -316,7 +315,7 @@ namespace StudentsPract.Pages.Contracts
         {
             try
             {
-                string file = $"attachment second.docx";
+                string file = $"Приложение 2.docx";
 
                 // создаём документ
                 DocX document = DocX.Create(dir + file);

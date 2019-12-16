@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StudentsPract.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+    <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock Text="Документы" FontSize="24" Margin="0 0 0 10"/>
             
@@ -14,7 +14,7 @@
                 <StackPanel Orientation="Vertical">
                     <DataGrid x:Name="contracts_list">
                         <DataGrid.Columns>
-                            <DataGridHyperlinkColumn Header="Наименование" Binding="{Binding contract_name}">
+                            <DataGridHyperlinkColumn Header="Наименование" Binding="{Binding name}">
                                 <DataGridHyperlinkColumn.ElementStyle>
                                     <Style>
                                         <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
@@ -27,7 +27,20 @@
                 </StackPanel>
             </Expander>
             <Expander Header="Приказы">
-                <Button Style="{StaticResource MyButton}" Content="Сформировать приказ"/>
+                <StackPanel Orientation="Vertical">
+                    <DataGrid x:Name="orders_list">
+                        <DataGrid.Columns>
+                            <DataGridHyperlinkColumn Header="Наименование" Binding="{Binding name}">
+                                <DataGridHyperlinkColumn.ElementStyle>
+                                    <Style>
+                                        <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click_order"/>
+                                    </Style>
+                                </DataGridHyperlinkColumn.ElementStyle>
+                            </DataGridHyperlinkColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="OrdersAdd"  Style="{StaticResource MyButton}" Content="Сформировать приказ" Click="OrdersAdd_Click"/>
+                </StackPanel>
             </Expander>
             
         </StackPanel>
