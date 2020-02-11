@@ -65,7 +65,7 @@
                 </TreeView.ItemContainerStyle>
             </TreeView>
 
-            <Button Content="?" Click="Button_PrintCrew_Click" />
+            <Button Content="?" Click="Button_PrintCrew_Click" Visibility="Collapsed" />
 
             <TextBlock x:Name="textBoxCrew"/>
         </StackPanel>

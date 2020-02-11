@@ -219,13 +219,22 @@ namespace StudentsPract.Pages.Contracts
                 document.InsertParagraph("подпись         расшифровка подписи").Script(Script.superscript).FontSize(10).Alignment = Alignment.both;
                 #endregion
 
-                // сохраняем документ
-                document.Save();
-
                 if(CreateContract_Attch1() == false) return false;
                 if(CreateContract_Attch2() == false) return false;
 
+                // Добавляем данные в БД
+                SQLiteAdapter.SetValue("contracts", contract_num, 
+                                                    $"{_date.Day}.{_date.Month}.{_date.Year}",
+                                                    contract_org,
+                                                    contract_empl,
+                                                    formPract.SelectedItem.ToString(),
+                                                    type_pract.SelectedItem.ToString());
+                // сохраняем документ
+                document.Save();
+
             } catch(Exception e) {
+                SQLiteAdapter.DeleteRowById("contracts", $"[id]='{contract_num}'");
+                SQLiteAdapter.DeleteRowById("attach", $"[id_contract]='{contract_num}'");
                 MessageBox.Show($"Error: {e}", "Error", MessageBoxButton.OK);
                 return false;
             }
@@ -400,6 +409,12 @@ namespace StudentsPract.Pages.Contracts
                         table.Rows[row].Cells[7].Paragraphs[0].Append(cathedra.surname + " " + cathedra.name + " " + cathedra.patronymic).Alignment = Alignment.center; // Ф.И.О. руководителя от кафедры
                         table.Rows[row].Cells[8].Paragraphs[0].Append(cathedra.phone).Alignment = Alignment.center; // Телефон кафедры
                         row++;
+
+                        // Добавляем студента в БД Attach
+                        // Разбиваем ФИО студента на состовляющие
+                        var fio = tmp_st.Split();
+                        Student st_tmp = Helper.OStudents.Where(k=>k.surname.Equals(fio[0]) && k.name.Equals(fio[1]) && k.patronymic.Equals(fio[2])).ElementAt(0);
+                        SQLiteAdapter.SetValue("attach", contract_num, st_tmp.id);
                     }
                 }
 

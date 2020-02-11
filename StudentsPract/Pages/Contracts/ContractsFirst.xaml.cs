@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -29,6 +30,9 @@ namespace StudentsPract.Pages.Contracts
 
         private List<string> selected_dir;
         private List<List<string>> selected_course;
+
+        // Создаем регулярное выражение для проверк вводимых символов
+        Regex inputRegex = new Regex(@"^[1-9]{1,1}\d*$");
 
         public ContractsFirst()
         {
@@ -88,11 +92,11 @@ namespace StudentsPract.Pages.Contracts
                 }
             }
 
-
             // EventHandler's
             date.SelectedDateChanged += Controls_Listener;
             contract_num.TextChanged += Controls_Listener;
             contract_org.SelectionChanged += Controls_Listener;
+            contract_num.PreviewTextInput += new TextCompositionEventHandler(textBox_PreviewTextInput);
         }
 
         protected void Controls_Listener(object sender, EventArgs e)
@@ -167,6 +171,26 @@ namespace StudentsPract.Pages.Contracts
                     break;
                 default:
                     break;
+            }
+        }
+
+        void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            string entered_text = (sender as TextBox).Text + e.Text;
+            Match match = inputRegex.Match(entered_text);
+            if ((sender as TextBox).Text.Length >= 4 || !match.Success)
+            {
+                // Отмена обработки события
+                e.Handled = true;
+            }
+        }
+
+        private void contract_num_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Helper.OContracts.Where(k => k.id.Equals(contract_num.Text.Trim())).Count() > 0)
+            {
+                contract_num.Text = "";
+                MessageBox.Show("Договор с таким номером уже существует! Укажите другой номер.", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentsPract.Pages"
+             xmlns:classes="clr-namespace:StudentsPract.Classes"
+             xmlns:dgx="urn:tom-englert.de/DataGridExtensions"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -12,18 +14,66 @@
             
             <Expander Header="Договоры">
                 <StackPanel Orientation="Vertical">
-                    <DataGrid x:Name="contracts_list">
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Right" Margin="0 0 0 10">
+                        <Button x:Name="Contract_open" Content="Открыть папку" Click="Controls_Buttons">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=contracts_list, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="Contract_edit" Content="Редактировать" Click="Controls_Buttons">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=contracts_list, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="Contract_del" Content="Удалить" Click="Controls_Buttons">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MyButton}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=contracts_list, Path=SelectedItems.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid x:Name="contracts_list" ItemsSource="{x:Static classes:Helper.OContracts}"
+                              dgx:DataGridFilter.IsAutoFilterEnabled="True">
                         <DataGrid.Columns>
-                            <DataGridHyperlinkColumn Header="Наименование" Binding="{Binding name}">
-                                <DataGridHyperlinkColumn.ElementStyle>
-                                    <Style>
-                                        <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
-                                    </Style>
-                                </DataGridHyperlinkColumn.ElementStyle>
-                            </DataGridHyperlinkColumn>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding id, StringFormat='Договор №{0}'}"/>
+                            <DataGridTextColumn Header="Организация" Binding="{Binding contract_org}"/>
+                            <DataGridTextColumn Header="Вид практики" Binding="{Binding form_pract}"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding date}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="ContractsAdd" Style="{StaticResource MyButton}" Content="Сформировать договор" Click="ContractsAdd_Click"/>
+                    <Button x:Name="ContractsAdd" Style="{StaticResource MyButton}" Content="Сформировать новый договор" Click="ContractsAdd_Click" Margin="0"/>
                 </StackPanel>
             </Expander>
             <Expander Header="Приказы">

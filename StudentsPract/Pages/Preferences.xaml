@@ -6,13 +6,34 @@
              xmlns:local="clr-namespace:StudentsPract.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock Text="Параметры" FontSize="24"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Цветовая тема" FontSize="16" Margin="0 0 10 0"/>
-                <ComboBox x:Name="themeSwitcher" SelectionChanged="ThemeChange"/>
-            </StackPanel>
+            <Grid Width="auto" HorizontalAlignment="Left" Margin="5 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto" MinWidth="150" MaxWidth="250"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Цветовая тема" FontSize="16" Grid.Column="0" Grid.Row="0" Margin="0 0 0 5"/>
+                <ComboBox x:Name="themeSwitcher" FontSize="16" Grid.Column="1" Grid.Row="0" Margin="0 0 0 5" SelectionChanged="ThemeChange"/>
+
+                <Label Content="Каталог документов" FontSize="16" Grid.Column="0" Grid.Row="2" Margin="0 0 0 5"/>
+                <TextBox x:Name="catalog_doc" FontSize="16" Grid.Column="1" Grid.Row="2" Margin="0 0 0 5" IsReadOnly="True"/>
+                <Button Name="btnCatalog_doc" Content="Открыть" Style="{StaticResource MyButton}" Grid.Column="2" Grid.Row="2" Margin="0 0 0 5" Click="btnCatalog_doc_Click"/>
+
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -228,6 +228,14 @@ namespace StudentsPract.Adapters
                     case "pract_types":
                         query = $"INSERT INTO [{table_name}]('id_groupe', 'type_name') " +
                             $"VALUES(@param1, @param2)";
+                        break;                    
+                    case "contracts":
+                        query = $"INSERT INTO [{table_name}]('id', 'date', 'contract_org', 'contract_empl', 'form_pract', 'type_pract') " +
+                            $"VALUES(@param1, @param2, @param3, @param4, @param5, @param6)";
+                        break;
+                    case "attach":
+                        query = $"INSERT INTO [{table_name}]('id_contract', 'id_student') " +
+                            $"VALUES(@param1, @param2)";
                         break;
                     default:
                         break;

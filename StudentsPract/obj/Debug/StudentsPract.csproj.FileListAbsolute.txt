@@ -210,6 +210,8 @@ D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\System.Data.SQLite.dll.
 D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\Microsoft.Xaml.Behaviors.dll
 D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 D:\Projects\CSharp\StudentsPract\StudentsPract\bin\Debug\Microsoft.Xaml.Behaviors.xml
-D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.csprojAssemblyReference.cache
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Orders\Orders.g.cs
 D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Orders\Orders.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\Contracts_Edit.g.cs
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\Pages\Contracts\Contracts_Edit.baml
+D:\Projects\CSharp\StudentsPract\StudentsPract\obj\Debug\StudentsPract.csprojAssemblyReference.cache

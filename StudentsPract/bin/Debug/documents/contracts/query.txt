@@ -1,0 +1,5 @@
+SELECT contracts.date, contracts.contract_org, contracts.contract_empl, contracts.form_pract, contracts.type_pract, students.surname, students.name, students.patronymic, groups.groupe, directions.code, directions.name FROM contracts 
+INNER JOIN attach ON attach.id_contract=contracts.id_contract
+INNER JOIN students ON students.id=attach.id_student
+INNER JOIN groups ON groups.id=students.groupe
+INNER JOIN directions ON directions.id=groups.direction

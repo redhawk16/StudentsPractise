@@ -19,6 +19,7 @@ namespace StudentsPract.Classes
         public static ObservableCollection<Employee> OEmployees { get; set; }
         public static ObservableCollection<Direction> ODirections { get; set; }
         public static ObservableCollection<Practise> OPractise { get; set; }
+        public static ObservableCollection<Contracts> OContracts { get; set; }
         #endregion
 
         private static Helper instance = null;
@@ -41,6 +42,7 @@ namespace StudentsPract.Classes
                 OEmployees = new ObservableCollection<Employee>(GetTableByClass<Employee>());
                 ODirections = new ObservableCollection<Direction>(GetTableByClass<Direction>("directions INNER JOIN cathedras ON cathedras.id=directions.id_cathedra", "directions.id, directions.code, directions.name, cathedras.cathedra"));
                 OPractise = new ObservableCollection<Practise>(GetTableByClass<Practise>());
+                OContracts = new ObservableCollection<Contracts>(GetTableByClass<Contracts>());
             }
         }
 
@@ -71,6 +73,10 @@ namespace StudentsPract.Classes
             OPractise.Clear();
             foreach (var item in GetTableByClass<Practise>())
                 OPractise.Add(item);
+            
+            OContracts.Clear();
+            foreach (var item in GetTableByClass<Contracts>())
+                OContracts.Add(item);
         }
 
         public static bool Controls_Listener(List<Control> controls)
@@ -126,6 +132,7 @@ namespace StudentsPract.Classes
             else if (typeof(T).Name.Equals("Direction")) return "directions";
             else if (typeof(T).Name.Equals("Practise")) return "practise_base";
             else if (typeof(T).Name.Equals("Practise_Type")) return "pract_types";
+            else if (typeof(T).Name.Equals("Contracts")) return "contracts";
 
             return "Error";
         }
@@ -218,6 +225,16 @@ namespace StudentsPract.Classes
         public string id { get; set; }
         public string id_groupe { get; set; }
         public string type_name { get; set; }
+    }
+
+    public class Contracts
+    {
+        public string id { get; set; }
+        public string date { get; set; }
+        public string contract_org { get; set; }
+        public string contract_empl { get; set; }
+        public string form_pract { get; set; }
+        public string type_pract { get; set; }
     }
     #endregion
 }

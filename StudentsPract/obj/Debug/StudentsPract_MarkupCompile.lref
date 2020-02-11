@@ -6,6 +6,7 @@ FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Cathedras\Cathedras_Edit.x
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Contracts\Contracts.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Contracts\ContractsFirst.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Contracts\ContractsSecond.xaml;;
+FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Contracts\Contracts_Edit.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Directions\Direction_Add.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Directions\Direction_Edit.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Documents.xaml;;
@@ -15,6 +16,7 @@ FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Groups\Groups.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Groups\Groups_Add.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Groups\Groups_Edit.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Home.xaml;;
+FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Orders\Orders.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Others\Others.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Pract_bases\Pract.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Pract_bases\Pract_Add.xaml;;
@@ -26,5 +28,4 @@ FD:\Projects\CSharp\StudentsPract\StudentsPract\Styles\Colors.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Styles\Fonts.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Contracts\Contracts_add.xaml;;
 FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Students\Student_Add.xaml;;
-FD:\Projects\CSharp\StudentsPract\StudentsPract\Pages\Orders\Orders.xaml;;
 
