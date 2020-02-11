@@ -13,8 +13,8 @@
 > **Список студентов**<br/>
 ![studentlist](screens/studentlist.png?raw=true "Список студентов")
 
-> **Добавление студентов**<br/>
-![studentadd](screens/studentadd.png?raw=true "Добавление студентов")
+> **Редактирование студента**<br/>
+![studentedit](screens/studentedit.png?raw=true "Добавление студента")
 
 > **Список документов**<br/>
 ![documents](screens/documents.png?raw=true "Список документов")
